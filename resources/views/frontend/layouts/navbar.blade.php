@@ -29,35 +29,46 @@
             <!-- Desktop Menu -->
             <div class="hidden sm:flex items-center gap-4 md:gap-6 lg:gap-8 text-sm lg:text-base">
 
-                <a href="#"
-                    class="relative text-teal-600 font-semibold after:absolute after:left-0 after:bottom-[-6px] after:h-[2px] after:w-full after:bg-teal-600">
+                {{-- Home --}}
+                <a href="{{ route('landing-page') }}"
+                    class="relative font-medium transition-all duration-300
+        {{ request()->routeIs('landing-page') ? 'text-teal-600 font-semibold after:w-full' : 'text-slate-700 hover:text-teal-600 after:w-0 hover:after:w-full' }}
+        after:absolute after:left-0 after:bottom-[-6px]
+        after:h-[2px] after:bg-teal-600 after:transition-all after:duration-300">
+
                     Home
                 </a>
 
-                <a href="#"
-                    class="relative text-slate-700 font-medium hover:text-teal-600
-                    after:absolute after:left-0 after:bottom-[-6px]
-                    after:h-[2px] after:w-0 after:bg-teal-600
-                    after:transition-all after:duration-300
-                    hover:after:w-full">
+
+                {{-- Qualifications --}}
+                <a href="{{ route('qualifications-page') }}"
+                    class="relative font-medium transition-all duration-300
+        {{ request()->routeIs('qualifications-page') ? 'text-teal-600 font-semibold after:w-full' : 'text-slate-700 hover:text-teal-600 after:w-0 hover:after:w-full' }}
+        after:absolute after:left-0 after:bottom-[-6px]
+        after:h-[2px] after:bg-teal-600 after:transition-all after:duration-300">
+
                     Qualifications
                 </a>
 
-                <a href="/about"
-                    class="relative text-slate-700 font-medium hover:text-teal-600
-                    after:absolute after:left-0 after:bottom-[-6px]
-                    after:h-[2px] after:w-0 after:bg-teal-600
-                    after:transition-all after:duration-300
-                    hover:after:w-full">
+
+                {{-- About --}}
+                <a href="{{ route('about-page') }}"
+                    class="relative font-medium transition-all duration-300
+        {{ request()->routeIs('about-page') ? 'text-teal-600 font-semibold after:w-full' : 'text-slate-700 hover:text-teal-600 after:w-0 hover:after:w-full' }}
+        after:absolute after:left-0 after:bottom-[-6px]
+        after:h-[2px] after:bg-teal-600 after:transition-all after:duration-300">
+
                     About
                 </a>
 
+
+                {{-- Contact --}}
                 <a href="#"
-                    class="relative text-slate-700 font-medium hover:text-teal-600
-                    after:absolute after:left-0 after:bottom-[-6px]
-                    after:h-[2px] after:w-0 after:bg-teal-600
-                    after:transition-all after:duration-300
-                    hover:after:w-full">
+                    class="relative font-medium transition-all duration-300 text-slate-700 hover:text-teal-600
+        after:absolute after:left-0 after:bottom-[-6px]
+        after:h-[2px] after:w-0 after:bg-teal-600
+        after:transition-all after:duration-300 hover:after:w-full">
+
                     Contact
                 </a>
 
@@ -78,9 +89,9 @@
 
         <div class="flex flex-col px-6 py-5 space-y-5">
 
-            <a href="#" class="text-teal-600 font-semibold">Home</a>
-            <a href="#" class="text-slate-700 hover:text-teal-600">Qualifications</a>
-            <a href="#" class="text-slate-700 hover:text-teal-600">About</a>
+            <a href="{{ route('landing-page') }}" class="text-teal-600 font-semibold">Home</a>
+            <a href="{{ route('qualifications-page') }}" class="text-slate-700 hover:text-teal-600">Qualifications</a>
+            <a href="{{ route('about-page') }}" class="text-slate-700 hover:text-teal-600">About</a>
             <a href="#" class="text-slate-700 hover:text-teal-600">Contact</a>
 
             <button class="bg-teal-600 text-white py-3 rounded-lg font-medium">
