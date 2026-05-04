@@ -12,7 +12,9 @@
     @include('frontend.layouts.navbar')
 
     <main class="flex-grow">
-        @yield('content')
+       <div class="pt-24 pb-12">
+         @yield('content')
+       </div>
     </main>
 
     @include('frontend.layouts.footer')
