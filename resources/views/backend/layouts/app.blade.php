@@ -112,8 +112,8 @@
     {{-- preloader end --}}
 
     <div class="min-h-screen xl:flex">
-        @include('layouts.backdrop')
-        @include('layouts.sidebar')
+        @include('backend.layouts.backdrop')
+        @include('backend.layouts.sidebar')
 
         <div class="flex-1 transition-all duration-300 ease-in-out"
             :class="{
@@ -122,7 +122,7 @@
                 'ml-0': $store.sidebar.isMobileOpen
             }">
             <!-- app header start -->
-            @include('layouts.app-header')
+            @include('backend.layouts.app-header')
             <!-- app header end -->
             <div class="p-4 mx-auto max-w-(--breakpoint-2xl) md:p-6">
                 @yield('content')

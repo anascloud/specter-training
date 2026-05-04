@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Dashboard</h1>
-</body>
-</html>
+@extends('backend.layouts.app')
+
+@section('content')
+    <div class="space-y-6">
+        <div class="flex items-center justify-between">
+            <h1 class="text-2xl font-semibold text-gray-800 dark:text-white/90">
+                {{ $title ?? 'Admin Dashboard' }}
+            </h1>
+        </div>
+    </div>
+@endsection
