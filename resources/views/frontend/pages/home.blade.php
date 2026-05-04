@@ -103,8 +103,7 @@
                 <a class="text-brand-600 font-semibold flex items-center gap-2 group border-b border-brand-600/0 hover:border-brand-600 transition-all"
                     href="#">
                     View All Qualifications
-                    <span
-                        class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    <span aria-hidden="true" class="text-base">→</span>
                 </a>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -118,7 +117,8 @@
                     <div class="p-6 space-y-4">
                         <span
                             class="text-caption text-xs text-brand-600 bg-brand-600/10 font-semibold px-2 py-1 uppercase rounded">Hospitality</span>
-                        <h3 class="font-semibold text-slate-900  md:text-base text-sm leading-tight mt-2">Advanced Diploma of Hospitality</h3>
+                        <h3 class="font-semibold text-slate-900  md:text-base text-sm leading-tight mt-2">Advanced Diploma
+                            of Hospitality</h3>
                         <div class="flex flex-wrap gap-y-1 text-slate-500 text-caption font-semibold text-xs">
                             <span class="flex items-center mr-4 font-semibold">schedule 12 Months</span>
                             <span class="flex items-center">school Level 6</span>
@@ -130,7 +130,7 @@
                     </div>
                 </div>
                 <!-- Retail -->
-                <div class="qualification-card bg-white border border-slate-200 transition-all duration-300">
+                <div class="qualification-card bg-white border border-slate-200 transition-all duration-300 rounded-md">
                     <div class="h-48 overflow-hidden">
                         <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                             data-alt="modern retail storefront with elegant clothing displays and clean minimalist interior design"
@@ -138,13 +138,12 @@
                     </div>
                     <div class="p-6 space-y-4">
                         <span
-                            class="text-caption text-sm text-brand-600 bg-brand-600/20 px-2 py-1 uppercase rounded">Retail</span>
-                        <h3 class="font-headline-md text-slate-900">Certificate IV in Retail Operations</h3>
-                        <div class="flex flex-wrap gap-y-2 text-slate-500 text-caption font-semibold">
-                            <span class="flex items-center mr-4"><span
-                                    class="material-symbols-outlined text-sm mr-1">schedule</span> 6 Months</span>
-                            <span class="flex items-center"><span
-                                    class="material-symbols-outlined text-sm mr-1">school</span> Level 4</span>
+                            class="text-caption text-xs text-brand-600 bg-brand-600/10 font-semibold px-2 py-1 uppercase rounded">Retail</span>
+                        <h3 class="font-semibold text-slate-900  md:text-base text-sm leading-tight mt-2">Certificate IV in
+                            Retail Operations</h3>
+                        <div class="flex flex-wrap gap-y-1 text-slate-500 text-caption font-semibold text-xs">
+                            <span class="flex items-center mr-4 font-semibold">schedule 6 Months</span>
+                            <span class="flex items-center">school Level 4</span>
                         </div>
                         <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
                             <span class="text-slate-900 font-semibold">$2,800</span>
@@ -153,7 +152,7 @@
                     </div>
                 </div>
                 <!-- Manufacturing -->
-                <div class="qualification-card bg-white border border-slate-200 transition-all duration-300">
+                <div class="qualification-card bg-white border border-slate-200 transition-all duration-300 rounded-md">
                     <div class="h-48 overflow-hidden">
                         <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                             data-alt="high-tech automated manufacturing facility with robotic arms and clean industrial aesthetic"
@@ -161,13 +160,12 @@
                     </div>
                     <div class="p-6 space-y-4">
                         <span
-                            class="text-caption text-sm text-brand-600 bg-brand-600/20 px-2 py-1 uppercase rounded">Manufacturing</span>
-                        <h3 class="font-headline-md text-slate-900">Precision Systems Specialist</h3>
-                        <div class="flex flex-wrap gap-y-2 text-slate-500 text-caption font-semibold">
-                            <span class="flex items-center mr-4"><span
-                                    class="material-symbols-outlined text-sm mr-1">schedule</span> 18 Months</span>
-                            <span class="flex items-center"><span
-                                    class="material-symbols-outlined text-sm mr-1">school</span> Level 5</span>
+                            class="text-caption text-xs text-brand-600 bg-brand-600/10 font-semibold px-2 py-1 uppercase rounded">Manufacturing</span>
+                        <h3 class="font-semibold text-slate-900  md:text-base text-sm leading-tight mt-2">Precision Systems
+                            Specialist</h3>
+                        <div class="flex flex-wrap gap-y-1 text-slate-500 text-caption font-semibold text-xs">
+                            <span class="flex items-center mr-4 font-semibold">schedule 18 Months</span>
+                            <span class="flex items-center">school Level 5</span>
                         </div>
                         <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
                             <span class="text-slate-900 font-semibold">$5,100</span>
@@ -176,7 +174,7 @@
                     </div>
                 </div>
                 <!-- Business -->
-                <div class="qualification-card bg-white border border-slate-200 transition-all duration-300">
+                <div class="qualification-card bg-white border border-slate-200 transition-all duration-300 rounded-md">
                     <div class="h-48 overflow-hidden">
                         <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                             data-alt="contemporary boardroom with floor-to-ceiling windows and city skyline background in soft focus"
@@ -184,13 +182,12 @@
                     </div>
                     <div class="p-6 space-y-4">
                         <span
-                            class="text-caption text-sm text-brand-600 bg-brand-600/20 px-2 py-1 uppercase rounded">Business</span>
-                        <h3 class="font-headline-md text-slate-900">Certificate in Business Leadership</h3>
-                        <div class="flex flex-wrap gap-y-2 text-slate-500 text-caption font-semibold">
-                            <span class="flex items-center mr-4"><span
-                                    class="material-symbols-outlined text-sm mr-1">schedule</span> 4 Months</span>
-                            <span class="flex items-center"><span
-                                    class="material-symbols-outlined text-sm mr-1">school</span> Level 3</span>
+                            class="text-caption text-xs text-brand-600 bg-brand-600/10 font-semibold px-2 py-1 uppercase rounded">Business</span>
+                        <h3 class="font-semibold text-slate-900  md:text-base text-sm leading-tight mt-2">Certificate in
+                            Business Leadership</h3>
+                        <div class="flex flex-wrap gap-y-1 text-slate-500 text-caption font-semibold text-xs">
+                            <span class="flex items-center mr-4 font-semibold">schedule 4 Months</span>
+                            <span class="flex items-center">school Level 3</span>
                         </div>
                         <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
                             <span class="text-slate-900 font-semibold">$1,950</span>
@@ -201,4 +198,117 @@
             </div>
         </div>
     </section>
+
+    <section class="bg-gray-50 py-10 sm:py-12 lg:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Heading -->
+            <div class="text-center md:mb-8 mb-4">
+                <h2 class="font-display font-bold text-lg md:text-xl lg:text-2xl text-primary mb-3">Our Student Stories
+                </h2>
+                <p class="text-on-surface-variant max-w-xl mx-auto text-sm md:text-base lg:text-lg">Hear from our students
+                    about their journey and success stories.</p>
+            </div>
+
+            <!-- Reviews Data -->
+            @php
+                $reviews = [
+                    [
+                        'name' => 'Carly Bishop',
+                        'designation' => 'Individual Support',
+                        'image' => 'author-1.png',
+                        'rating' => 4,
+                        'text' =>
+                            'I highly recommend them, I was hired before finishing my placement and love working in this industry...',
+                    ],
+                    [
+                        'name' => 'Roslyn Brakes',
+                        'designation' => 'Aged Care',
+                        'image' => 'author-2.png',
+                        'rating' => 4,
+                        'text' => 'I completed my certificate IV in ageing support and have no complaints...',
+                    ],
+                    [
+                        'name' => 'Jess Heffernan',
+                        'designation' => 'Community Service',
+                        'image' => 'author-3.png',
+                        'rating' => 4,
+                        'text' => 'Had a great experience with them. great place to study...',
+                    ],
+                    [
+                        'name' => 'Md Abdul Mannan',
+                        'designation' => 'Community Service',
+                        'image' => 'author-3.png',
+                        'rating' => 4,
+                        'text' => 'Had a great experience with them. great place to study...',
+                    ],
+                ];
+            @endphp
+
+            <!-- Slider -->
+            <div class="relative">
+                <div class="swiper student-stories-swiper">
+                    <div class="swiper-wrapper">
+                        @foreach ($reviews as $review)
+                            <div class="swiper-slide h-auto">
+                                <div
+                                    class="bg-white rounded-md border border-slate-200 shadow-sm 
+                      p-5 sm:p-6 lg:p-7 
+                      flex flex-col h-full">
+
+                                    <!-- Stars -->
+                                    <div class="flex items-center gap-1 mb-4">
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            @if ($i <= $review['rating'])
+                                                <i class="fa-solid fa-star text-yellow-400 text-sm sm:text-base"></i>
+                                            @else
+                                                <i class="fa-regular fa-star text-yellow-400 text-sm sm:text-base"></i>
+                                            @endif
+                                        @endfor
+                                    </div>
+
+                                    <!-- Text -->
+                                    <p
+                                        class="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 flex-grow line-clamp-3">
+                                        {{ $review['text'] }}
+                                    </p>
+
+                                    <!-- Author -->
+                                    <div class="flex items-center justify-between mt-auto">
+
+                                        <div class="flex items-center gap-3">
+                                            <img src="{{ asset('frontend/images/testimonial/' . $review['image']) }}"
+                                                alt="{{ $review['name'] }}"
+                                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover">
+
+                                            <div>
+                                                <h5
+                                                    class="font-semibold text-gray-900 
+                             text-sm sm:text-base">
+                                                    {{ $review['name'] }}
+                                                </h5>
+                                                <span class="text-gray-500 text-xs sm:text-sm">
+                                                    {{ $review['designation'] }}
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Quote Icon -->
+                                        <img src="{{ asset('frontend/images/testimonial/quote.svg') }}" alt="quote"
+                                            class="w-6 sm:w-8 opacity-40">
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
+                    <button type="button" class="swiper-button-prev" aria-label="Previous student story"></button>
+                    <button type="button" class="swiper-button-next" aria-label="Next student story"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
 @endsection
+
