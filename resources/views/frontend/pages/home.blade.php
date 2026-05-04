@@ -44,25 +44,10 @@
                     <p class="text-slate-500 font-body-md">Fill out the form below and an education consultant will contact
                         you within 24 hours.</p>
                     <form class="space-y-4">
-                        <div>
-                            <label class="block font-label-bold text-slate-700 mb-2">Full Name</label>
-                            <input
-                                class="w-full border-slate-200 focus:border-on-primary-fixed focus:ring-on-primary-fixed p-3 font-body-md transition-colors"
-                                placeholder="John Doe" type="text">
-                        </div>
+                        <x-input-text label="Full Name" name="full_name" placeholder="John Doe" type="text" />
                         <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label class="block font-label-bold text-slate-700 mb-2">Email Address</label>
-                                <input
-                                    class="w-full border-slate-200 focus:border-on-primary-fixed focus:ring-on-primary-fixed p-3 font-body-md transition-colors"
-                                    placeholder="john@example.com" type="email">
-                            </div>
-                            <div>
-                                <label class="block font-label-bold text-slate-700 mb-2">Phone Number</label>
-                                <input
-                                    class="w-full border-slate-200 focus:border-on-primary-fixed focus:ring-on-primary-fixed p-3 font-body-md transition-colors"
-                                    placeholder="+1 (555) 000-0000" type="tel">
-                            </div>
+                             <x-input-text label="Email Address" name="email" placeholder="john@example.com" type="email" />
+                                <x-input-text label="Phone Number" name="phone" placeholder="+1 (555) 000-0000" type="tel" />
                         </div>
                         <div>
                             <label class="block font-label-bold text-slate-700 mb-2">Interested Sector</label>
