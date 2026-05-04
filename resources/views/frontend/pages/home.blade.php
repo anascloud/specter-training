@@ -57,7 +57,7 @@
                             'business-administration' => 'Business Administration',
                         ]" />
                         <button
-                            class="w-full bg-teal-600 text-white rounded py-4 font-semibold text-lg active:scale-95 transition-transform mt-4"
+                            class="w-full bg-teal-600 text-white rounded py-2.5 font-semibold text-base active:scale-95 transition-transform mt-4"
                             type="submit">
                             Submit Application
                         </button>

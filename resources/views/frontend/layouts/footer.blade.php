@@ -28,19 +28,7 @@
                         href="#">Business</a></li>
             </ul>
         </div>
-        <div class="space-y-6">
-            <h4 class="font-label-bold text-slate-900 uppercase tracking-widest text-xs">Resources</h4>
-            <ul class="space-y-4">
-                <li><a class="text-slate-500 font-medium hover:text-slate-900 transition-colors font-public-sans text-sm"
-                        href="#">Student Portal</a></li>
-                <li><a class="text-slate-500 font-medium hover:text-slate-900 transition-colors font-public-sans text-sm"
-                        href="#">FAQs</a></li>
-                <li><a class="text-slate-500 font-medium hover:text-slate-900 transition-colors font-public-sans text-sm"
-                        href="#">Funding Options</a></li>
-                <li><a class="text-slate-500 font-medium hover:text-slate-900 transition-colors font-public-sans text-sm"
-                        href="#">Brochures</a></li>
-            </ul>
-        </div>
+      
         <div class="space-y-6">
             <h4 class="font-label-bold text-slate-900 uppercase tracking-widest text-xs">Legal</h4>
             <ul class="space-y-4">
@@ -60,7 +48,6 @@
             <p class="text-slate-500 font-body-md text-sm">© 2024 Specter Training. Authority in Education.</p>
             <div class="flex gap-8">
                 <span class="text-caption font-label-bold text-slate-400">RTO Code: 89012</span>
-                <span class="text-caption font-label-bold text-slate-400">CRICOS Provider: 0341B</span>
             </div>
         </div>
     </div>

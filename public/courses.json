@@ -1,0 +1,89 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "code": "SIT20322",
+      "title": "Certificate II in Hospitality",
+      "slug": "certificate-ii-in-hospitality",
+      "industry": "Hospitality",
+      "level": "Certificate II",
+      "duration": "6 Months",
+      "delivery": ["Campus", "Workplace"],
+      "funding": "Gov Funded",
+      "features": [],
+      "image": "hospitality.webp",
+      "description": "Learn foundational hospitality skills including food prep and service."
+    },
+    {
+      "id": 2,
+      "code": "SIR30216",
+      "title": "Certificate III in Retail",
+         "slug": "certificate-iii-in-retail",
+      "industry": "Retail",
+      "level": "Certificate III",
+      "duration": "12 Months",
+      "delivery": ["Workplace"],
+      "funding": null,
+      "features": ["Traineeship Available"],
+      "image": "retail.webp",
+      "description": "Develop customer service and retail sales skills."
+    },
+    {
+      "id": 3,
+      "code": "BSB40120",
+      "title": "Certificate IV in Business",
+         "slug": "certificate-iv-in-business",
+      "industry": "Business",
+      "level": "Certificate IV",
+      "duration": "6-12 Months",
+      "delivery": ["Online"],
+      "funding": null,
+      "features": ["Leadership Focus"],
+      "image": "business.webp",
+      "description": "Build business, admin, and leadership skills."
+    },
+    {
+      "id": 4,
+      "code": "SIT30622",
+      "title": "Certificate III in Hospitality",
+      "slug": "certificate-iii-in-hospitality",
+      "industry": "Hospitality",
+      "level": "Certificate III",
+      "duration": "9 Months",
+      "delivery": ["Campus"],
+      "funding": "Gov Funded",
+      "features": [],
+      "image": "manufacturing.webp",
+      "description": "Intermediate hospitality training including service and operations."
+    },
+    {
+      "id": 5,
+      "code": "BSB50120",
+      "title": "Diploma of Business",
+        "slug": "diploma-of-business",
+      "industry": "Business",
+      "level": "Diploma",
+      "duration": "12 Months",
+      "delivery": ["Online", "Campus"],
+      "funding": null,
+      "features": ["Management Focus"],
+      "image": "operations.webp",
+      "description": "Advanced business and management training."
+    },
+      {
+        "id": 6,
+        "code": "SIT50422",
+        "title": "Diploma of Hospitality Management",
+          "slug": "diploma-of-hospitality-management",
+        "industry": "Hospitality",
+        "level": "Diploma",
+        "duration": "12-18 Months",
+        "delivery": ["Campus"],
+        "funding": null,
+        "features": ["Management Focus"],
+        "image": "leadership.webp",
+        "description": "Comprehensive hospitality management training."
+      }
+
+  ]
+}

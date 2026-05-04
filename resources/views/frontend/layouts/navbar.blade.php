@@ -31,8 +31,8 @@
 
                 {{-- Home --}}
                 <a href="{{ route('landing-page') }}"
-                    class="relative font-medium transition-all duration-300
-        {{ request()->routeIs('landing-page') ? 'text-teal-600 font-semibold after:w-full' : 'text-slate-700 hover:text-teal-600 after:w-0 hover:after:w-full' }}
+                    class="relative font-normal transition-all duration-300
+        {{ request()->routeIs('landing-page') ? 'text-teal-600 font-normal after:w-full' : 'text-slate-700 hover:text-teal-600 after:w-0 hover:after:w-full' }}
         after:absolute after:left-0 after:bottom-[-6px]
         after:h-[2px] after:bg-teal-600 after:transition-all after:duration-300">
 
@@ -42,8 +42,8 @@
 
                 {{-- Qualifications --}}
                 <a href="{{ route('qualifications-page') }}"
-                    class="relative font-medium transition-all duration-300
-        {{ request()->routeIs('qualifications-page') ? 'text-teal-600 font-semibold after:w-full' : 'text-slate-700 hover:text-teal-600 after:w-0 hover:after:w-full' }}
+                    class="relative font-normal transition-all duration-300
+        {{ request()->routeIs('qualifications-page') ? 'text-teal-600 font-normal after:w-full' : 'text-slate-700 hover:text-teal-600 after:w-0 hover:after:w-full' }}
         after:absolute after:left-0 after:bottom-[-6px]
         after:h-[2px] after:bg-teal-600 after:transition-all after:duration-300">
 
@@ -53,8 +53,8 @@
 
                 {{-- About --}}
                 <a href="{{ route('about-page') }}"
-                    class="relative font-medium transition-all duration-300
-        {{ request()->routeIs('about-page') ? 'text-teal-600 font-semibold after:w-full' : 'text-slate-700 hover:text-teal-600 after:w-0 hover:after:w-full' }}
+                    class="relative font-normal transition-all duration-300
+        {{ request()->routeIs('about-page') ? 'text-teal-600 font-normal after:w-full' : 'text-slate-700 hover:text-teal-600 after:w-0 hover:after:w-full' }}
         after:absolute after:left-0 after:bottom-[-6px]
         after:h-[2px] after:bg-teal-600 after:transition-all after:duration-300">
 
@@ -63,11 +63,11 @@
 
 
                 {{-- Contact --}}
-                <a href="#"
-                    class="relative font-medium transition-all duration-300 text-slate-700 hover:text-teal-600
+                <a href="{{ route('contact-page') }}"
+                    class="relative font-normal transition-all duration-300
+        {{ request()->routeIs('contact-page') ? 'text-teal-600 font-normal after:w-full' : 'text-slate-700 hover:text-teal-600 after:w-0 hover:after:w-full' }}
         after:absolute after:left-0 after:bottom-[-6px]
-        after:h-[2px] after:w-0 after:bg-teal-600
-        after:transition-all after:duration-300 hover:after:w-full">
+        after:h-[2px] after:bg-teal-600 after:transition-all after:duration-300">
 
                     Contact
                 </a>
@@ -76,7 +76,7 @@
 
             <!-- Right Side -->
             <button
-                class=" text-sm lg:text-base  bg-teal-600 text-white px-4 py-2 lg:px-6 lg:py-2.5 rounded-lg font-medium hover:bg-teal-700 transition">
+                class=" text-sm lg:text-base  bg-teal-600 text-white px-4 py-2 lg:px-6 lg:py-2.5 rounded-lg font-normal hover:bg-teal-700 transition">
                 Apply Now
             </button>
 
@@ -92,9 +92,9 @@
             <a href="{{ route('landing-page') }}" class="text-teal-600 font-semibold">Home</a>
             <a href="{{ route('qualifications-page') }}" class="text-slate-700 hover:text-teal-600">Qualifications</a>
             <a href="{{ route('about-page') }}" class="text-slate-700 hover:text-teal-600">About</a>
-            <a href="#" class="text-slate-700 hover:text-teal-600">Contact</a>
+            <a href="{{ route('contact-page') }}" class="text-slate-700 hover:text-teal-600">Contact</a>
 
-            <button class="bg-teal-600 text-white py-3 rounded-lg font-medium">
+            <button class="bg-teal-600 text-white py-3 rounded-lg font-normal">
                 Apply Now
             </button>
 
