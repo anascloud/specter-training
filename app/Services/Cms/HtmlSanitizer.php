@@ -107,7 +107,7 @@ class HtmlSanitizer
             if ($target === '_blank') {
                 $rel = trim((string) $element->getAttribute('rel'));
                 $needed = ['noopener', 'noreferrer'];
-                $current = $rel === '' ? [] : preg_split('/\s+/', $rel) ?: [];
+                $current = $rel === '' ? [] : (preg_split('/\s+/', $rel) ?: []);
                 $merged = array_values(array_unique(array_merge($current, $needed)));
                 $element->setAttribute('rel', implode(' ', $merged));
             }
@@ -154,4 +154,3 @@ class HtmlSanitizer
         $parent->removeChild($node);
     }
 }
-

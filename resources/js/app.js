@@ -88,4 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
             },
         });
     }
+
+    if (document.querySelector('[data-cms-editor]')) {
+        import('./components/cms-editor').then(module => module.initCmsEditors());
+    }
 });

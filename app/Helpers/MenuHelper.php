@@ -4,31 +4,18 @@ namespace App\Helpers;
 
 class MenuHelper
 {
-    public static function getAdminNavItems()
-    {
-        return [
-            [
-                'icon' => 'dashboard',
-                'name' => 'Dashboard',
-                'path' => route('admin.dashboard', [], false),
-            ],
-            [
-                'icon' => 'pages',
-                'name' => 'CMS Pages',
-                'path' => route('admin.cms.pages.index', [], false),
-            ],
-        ];
-    }
-
     public static function getMainNavItems()
     {
         return [
             [
                 'icon' => 'dashboard',
                 'name' => 'Dashboard',
-                'subItems' => [
-                    ['name' => 'Ecommerce', 'path' => '/'],
-                ],
+            'path'=>'dashboard'
+            ],
+            [
+                'icon' => 'pages',
+                'name' => 'CMS Pages',
+                'path' => route('admin.cms.pages.index', [], false),
             ],
             [
                 'icon' => 'calendar',
@@ -69,15 +56,6 @@ class MenuHelper
 
     public static function getMenuGroups()
     {
-        if (request()->is('admin') || request()->is('admin/*')) {
-            return [
-                [
-                    'title' => 'Admin',
-                    'items' => self::getAdminNavItems(),
-                ],
-            ];
-        }
-
         return [
             [
                 'title' => 'Menu',

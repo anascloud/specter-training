@@ -50,12 +50,49 @@
 
                         <div>
                             <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Content</label>
-                            <textarea
-                                id="content"
-                                name="content"
-                                rows="10"
-                                class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"
-                            >{{ old('content', $section->content) }}</textarea>
+                            <div
+                                data-cms-editor
+                                data-upload-url="{{ route('admin.cms.media.upload') }}"
+                                data-preview-url="{{ route('admin.cms.sections.preview') }}"
+                                class="rounded-lg border border-gray-300 dark:border-gray-700"
+                            >
+                                <div class="flex items-center justify-between border-b border-gray-200 px-3 py-2 dark:border-gray-800">
+                                    <div class="flex items-center gap-2">
+                                        <button
+                                            type="button"
+                                            data-editor-mode="visual"
+                                            class="rounded-lg bg-brand-500 px-3 py-1.5 text-sm font-medium text-white"
+                                        >
+                                            Visual
+                                        </button>
+                                        <button
+                                            type="button"
+                                            data-editor-mode="html"
+                                            class="rounded-lg border border-gray-200 px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-800 dark:text-gray-300 dark:hover:bg-white/5"
+                                        >
+                                            HTML
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div data-wysiwyg-container class="p-3">
+                                    <textarea
+                                        data-editor-wysiwyg
+                                        rows="10"
+                                        class="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800"
+                                    >{{ old('content', $section->content) }}</textarea>
+                                </div>
+
+                                <div data-html-container class="hidden p-3">
+                                    <textarea
+                                        data-editor-html
+                                        name="content"
+                                        rows="10"
+                                        class="w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 font-mono text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800"
+                                        placeholder="&lt;h1&gt;...&lt;/h1&gt;"
+                                    >{{ old('content', $section->content) }}</textarea>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="flex items-center gap-2">
@@ -130,98 +167,3 @@
         </div>
     </div>
 @endsection
-
-@push('scripts')
-    <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/super-build/ckeditor.js"></script>
-    <script>
-        (function () {
-            const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
-            const textarea = document.getElementById('content');
-            const previewBtn = document.querySelector('[data-preview]');
-            const modal = document.getElementById('preview-modal');
-            const closeBtn = document.querySelector('[data-close-preview]');
-            const previewBody = document.getElementById('preview-body');
-            let editorInstance = null;
-
-            if (!textarea) return;
-
-            CKEDITOR.ClassicEditor.create(textarea, {
-                toolbar: {
-                    items: [
-                        'heading', '|',
-                        'bold', 'italic', 'underline', '|',
-                        'link', 'bulletedList', 'numberedList', '|',
-                        'insertTable', 'imageUpload', 'blockQuote', 'codeBlock', '|',
-                        'undo', 'redo', '|',
-                        'sourceEditing'
-                    ],
-                    shouldNotGroupWhenFull: true
-                },
-                simpleUpload: {
-                    uploadUrl: "{{ route('admin.cms.media.upload') }}",
-                    headers: {
-                        'X-CSRF-TOKEN': csrfToken
-                    }
-                },
-                htmlSupport: {
-                    allow: [
-                        {
-                            name: /.*/,
-                            attributes: true,
-                            classes: true
-                        }
-                    ]
-                },
-                style: {
-                    definitions: [
-                        { name: 'Text Center', element: 'p', classes: ['text-center'] },
-                        { name: 'Text Brand', element: 'span', classes: ['text-brand-500'] },
-                        { name: 'Button', element: 'a', classes: ['inline-flex', 'items-center', 'justify-center', 'rounded-lg', 'bg-brand-500', 'px-4', 'py-2', 'text-white'] }
-                    ]
-                }
-            }).then(editor => {
-                editorInstance = editor;
-            });
-
-            function openPreview(html) {
-                if (!modal || !previewBody) return;
-                previewBody.innerHTML = html;
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-            }
-
-            function closePreview() {
-                if (!modal) return;
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            }
-
-            if (closeBtn) {
-                closeBtn.addEventListener('click', closePreview);
-            }
-
-            if (modal) {
-                modal.addEventListener('click', function (e) {
-                    if (e.target === modal) closePreview();
-                });
-            }
-
-            if (previewBtn) {
-                previewBtn.addEventListener('click', async function () {
-                    const content = editorInstance ? editorInstance.getData() : textarea.value;
-                    const res = await fetch("{{ route('admin.cms.sections.preview') }}", {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': csrfToken,
-                            'Accept': 'application/json'
-                        },
-                        body: JSON.stringify({ content })
-                    });
-                    const data = await res.json();
-                    openPreview(data.html || '');
-                });
-            }
-        })();
-    </script>
-@endpush
