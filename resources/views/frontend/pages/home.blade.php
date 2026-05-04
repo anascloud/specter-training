@@ -106,95 +106,35 @@
                     <span aria-hidden="true" class="text-base">→</span>
                 </a>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <!-- Hospitality -->
-                <div class="qualification-card bg-white border border-slate-200 transition-all duration-300 rounded-md">
-                    <div class="h-48 overflow-hidden">
-                        <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                            data-alt="luxury hotel lobby interior with warm ambient lighting and professional reception staff"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkZKdeJqQF7L22vk0JFLIvupO-CSG0cZMyqMvtrGTafXmDhKYwzAH7Td1icb7I4rlJVsrQWRXT9vJFSeDRZ80OmQeQd4MGnARTAI0Hu-NDncixmYvWjktLDUF1hkzivLtWx_QtaYnM7r82NwceSFqIHksDteoKF2Zh0_yWkVJGYMyB4PFq9Fmtlmg0tdLjC3mgTMAH4TJpyl0xtXpLJvS1mXO7dFJuQ4kjx0XvMTAge06Mlc3pw0T7LaR0jpgx-yzUMnOH-K_pGQ">
-                    </div>
-                    <div class="p-6 space-y-4">
-                        <span
-                            class="text-caption text-xs text-brand-600 bg-brand-600/10 font-semibold px-2 py-1 uppercase rounded">Hospitality</span>
-                        <h3 class="font-semibold text-slate-900  md:text-base text-sm leading-tight mt-2">Advanced Diploma
-                            of Hospitality</h3>
-                        <div class="flex flex-wrap gap-y-1 text-slate-500 text-caption font-semibold text-xs">
-                            <span class="flex items-center mr-4 font-semibold">schedule 12 Months</span>
-                            <span class="flex items-center">school Level 6</span>
+             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:gap-6 gap-4  mt-6 md:mt-8">
+                @forelse($courses as $course)
+                    <div class="qualification-card bg-white border border-slate-200 transition-all duration-300 rounded-md">
+                        <div class="h-48 overflow-hidden">
+                            <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                                data-alt="luxury hotel lobby interior with warm ambient lighting and professional reception staff"
+                                src="{{ asset('frontend-img/' . $course['image']) }}" alt="{{ $course['title'] }}">
                         </div>
-                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
-                            <span class="text-slate-900 font-semibold">$4,250</span>
-                            <button class="text-brand-600 font-semibold text-sm">Enroll Now</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Retail -->
-                <div class="qualification-card bg-white border border-slate-200 transition-all duration-300 rounded-md">
-                    <div class="h-48 overflow-hidden">
-                        <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                            data-alt="modern retail storefront with elegant clothing displays and clean minimalist interior design"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeKnycj2uoeR2F-RrPyMomiu8NYBGrUJrcmnh3FM-8Ho_GRu9mMhs0y02HWW3peNat97mlazTMkwIHJe_agqxCm3lgVhJhR5qMGQxYSU7xlWSCt1wB4VWdrn2CJGU3kI506shjT_7w7NHY5n03FGmmzGev3e8Bqsr5CfRmS4TBpsm194LeMWFcjZAD7RRPb5OQH9zXRmaZL4uVaho1O-NWhFaHCDajciI8ism9SwVc-OmPCtAfleMT2MlKJZFHM4z4JOTq4JEb6A">
-                    </div>
-                    <div class="p-6 space-y-4">
-                        <span
-                            class="text-caption text-xs text-brand-600 bg-brand-600/10 font-semibold px-2 py-1 uppercase rounded">Retail</span>
-                        <h3 class="font-semibold text-slate-900  md:text-base text-sm leading-tight mt-2">Certificate IV in
-                            Retail Operations</h3>
-                        <div class="flex flex-wrap gap-y-1 text-slate-500 text-caption font-semibold text-xs">
-                            <span class="flex items-center mr-4 font-semibold">schedule 6 Months</span>
-                            <span class="flex items-center">school Level 4</span>
-                        </div>
-                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
-                            <span class="text-slate-900 font-semibold">$2,800</span>
-                            <button class="text-brand-600 font-semibold text-sm">Enroll Now</button>
+                        <div class="p-6 space-y-4">
+                            <span
+                                class="text-caption text-xs text-brand-600 bg-brand-600/10 font-semibold px-2 py-1 uppercase rounded">{{ $course['industry'] }}</span>
+                            <h3 class="font-semibold text-slate-900  md:text-base text-sm leading-tight mt-2">
+                                {{ $course['title'] }}</h3>
+                            <p class="text-slate-600 text-sm line-clamp-2">{{ $course['description'] }}</p>
+                            <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-6">
+                                <a href="#"
+                                    class="flex justify-center items-center w-1/2 bg-white border border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white rounded py-1.5 font-medium text-sm transition-transform">View
+                                    Details</a>
+                                <button
+                                    class="w-1/2 bg-teal-600 text-white rounded py-2 font-medium text-sm  transition-transform"
+                                    type="submit">
+                                    Enroll Now
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Manufacturing -->
-                <div class="qualification-card bg-white border border-slate-200 transition-all duration-300 rounded-md">
-                    <div class="h-48 overflow-hidden">
-                        <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                            data-alt="high-tech automated manufacturing facility with robotic arms and clean industrial aesthetic"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGRnTZbxblGCFpjXdjkBB0l91JqxRWnZ4-YrivUKqFwJXNRRja_s6ER9YA640GL8KRqGoa_q-D19Lvn0EO8DPKx-Q_jDhpihbB-idDNzrmuWMz3h4gfxuhK--4MQIPGeLbsK9o0TqHKRVD6cwbf2Dj1Vdo-kTImXA0QEEEwVbxrPlCNJq36O6JwlGXviO1qHJvzwUR-t2qeNNtfWfE_lv1kyuZ6U-uJRl1z2n2iZjKfkTpGYiW6ME-_1UbUVNI-gHj_piakK0Shw">
-                    </div>
-                    <div class="p-6 space-y-4">
-                        <span
-                            class="text-caption text-xs text-brand-600 bg-brand-600/10 font-semibold px-2 py-1 uppercase rounded">Manufacturing</span>
-                        <h3 class="font-semibold text-slate-900  md:text-base text-sm leading-tight mt-2">Precision Systems
-                            Specialist</h3>
-                        <div class="flex flex-wrap gap-y-1 text-slate-500 text-caption font-semibold text-xs">
-                            <span class="flex items-center mr-4 font-semibold">schedule 18 Months</span>
-                            <span class="flex items-center">school Level 5</span>
-                        </div>
-                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
-                            <span class="text-slate-900 font-semibold">$5,100</span>
-                            <button class="text-brand-600 font-semibold text-sm">Enroll Now</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Business -->
-                <div class="qualification-card bg-white border border-slate-200 transition-all duration-300 rounded-md">
-                    <div class="h-48 overflow-hidden">
-                        <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                            data-alt="contemporary boardroom with floor-to-ceiling windows and city skyline background in soft focus"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD19hGktWPptAha1J0u086QqE115CbHd_iDkJ5fnfAArbdxHEuYYSjjK04bUobKa30wNNuLw9ohAXT4eWLlOdxy1GsSfLGDzm32soeZ3vFQVUJ_de7AxIE5617MHjR15oD61D9DrH2CVk8gO0YqCjvI_6UksCeCybAZL4pBHG2XylyKGGgvvbcD3JH3FmkgSqtN2PUbBCpiCmyQROjqsZCOIxXps3fnKL5OE2fPsB7Rn_1XT_ZDkVOK9Jd2XFJ9Z0Gs8L-dfhSjng">
-                    </div>
-                    <div class="p-6 space-y-4">
-                        <span
-                            class="text-caption text-xs text-brand-600 bg-brand-600/10 font-semibold px-2 py-1 uppercase rounded">Business</span>
-                        <h3 class="font-semibold text-slate-900  md:text-base text-sm leading-tight mt-2">Certificate in
-                            Business Leadership</h3>
-                        <div class="flex flex-wrap gap-y-1 text-slate-500 text-caption font-semibold text-xs">
-                            <span class="flex items-center mr-4 font-semibold">schedule 4 Months</span>
-                            <span class="flex items-center">school Level 3</span>
-                        </div>
-                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
-                            <span class="text-slate-900 font-semibold">$1,950</span>
-                            <button class="text-brand-600 font-semibold text-sm">Enroll Now</button>
-                        </div>
-                    </div>
-                </div>
+                @empty
+                    <p>No courses found.</p>
+                @endforelse
             </div>
         </div>
     </section>

@@ -24,16 +24,25 @@ class FrontendController extends Controller
 
     public function qualificationsPage(Request $request)
     {
-        $courses = collect($this->getCourses());
+        $allCourses = collect($this->getCourses());
+        $courses = $allCourses;
 
         // Industry filter
         if ($request->filled('industry')) {
-            $courses = $courses->where('industry', $request->industry);
+            $industry = strtolower($request->industry);
+
+            $courses = $courses->filter(function ($course) use ($industry) {
+                return strtolower($course['industry']) === $industry;
+            });
         }
 
         // Level filter
         if ($request->filled('level')) {
-            $courses = $courses->where('level', $request->level);
+            $level = strtolower($request->level);
+
+            $courses = $courses->filter(function ($course) use ($level) {
+                return strtolower($course['level']) === $level;
+            });
         }
 
         // Search
@@ -51,9 +60,22 @@ class FrontendController extends Controller
             });
         }
 
+        $courses = $courses->values();
+
+        if ($request->ajax()) {
+            return response()->json([
+                'html' => view('frontend.pages.partials.qualification-cards', [
+                    'courses' => $courses,
+                ])->render(),
+                'count' => $courses->count(),
+            ]);
+        }
+
         return view('frontend.pages.qualifications', [
             'title' => 'Qualifications',
-            'courses' => $courses
+            'courses' => $courses,
+            'industries' => $allCourses->pluck('industry')->unique()->sort()->values(),
+            'levels' => $allCourses->pluck('level')->unique()->sort()->values(),
         ]);
     }
 
