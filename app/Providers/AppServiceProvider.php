@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\Admin\Auth\AdminAuthRepository;
+use App\Repositories\Admin\Auth\AdminAuthRepositoryInterface;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -12,8 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
-       
+        $this->app->bind(AdminAuthRepositoryInterface::class, AdminAuthRepository::class);
     }
 
     /**
@@ -21,7 +22,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
-         Schema::defaultStringLength(191);
+        Schema::defaultStringLength(191);
     }
 }
