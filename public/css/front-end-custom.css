@@ -256,7 +256,7 @@ body {
 
 .student-stories-swiper {
     overflow: hidden;
-    padding: 4px 2px 44px;
+    padding: 4px 2px 0;
 }
 
 .student-stories-swiper .swiper-slide {
@@ -264,12 +264,20 @@ body {
 }
 
 .student-stories-swiper .swiper-pagination {
-    bottom: 0;
+    position: static;
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+    transform: none;
 }
 
 .student-stories-swiper .swiper-pagination-bullet {
     width: 10px;
     height: 10px;
+    margin: 0 !important;
     background: #cbd5e1;
     opacity: 1;
     transition: width 0.2s ease, background-color 0.2s ease;
@@ -300,7 +308,7 @@ body {
 
 @media (max-width: 639px) {
     .student-stories-swiper {
-        padding-bottom: 38px;
+        padding-bottom: 0;
     }
 
     .student-stories-swiper .swiper-button-next,
@@ -310,3 +318,8 @@ body {
 }
 
         
+.ca-bg-primary {
+    --tw-bg-opacity: 1;
+    background-color: rgb(19 27 46 / var(--tw-bg-opacity, 1));
+}
+

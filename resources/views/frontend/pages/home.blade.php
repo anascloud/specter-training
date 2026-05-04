@@ -260,9 +260,9 @@
                                     <div class="flex items-center gap-1 mb-4">
                                         @for ($i = 1; $i <= 5; $i++)
                                             @if ($i <= $review['rating'])
-                                                <i class="fa-solid fa-star text-yellow-400 text-sm sm:text-base"></i>
+                                                <span class="text-teal-600 text-sm sm:text-xl">★</span>
                                             @else
-                                                <i class="fa-regular fa-star text-yellow-400 text-sm sm:text-base"></i>
+                                                <span class="text-teal-600 text-sm sm:text-xl">☆</span>
                                             @endif
                                         @endfor
                                     </div>
@@ -292,10 +292,6 @@
                                                 </span>
                                             </div>
                                         </div>
-
-                                        <!-- Quote Icon -->
-                                        <img src="{{ asset('frontend/images/testimonial/quote.svg') }}" alt="quote"
-                                            class="w-6 sm:w-8 opacity-40">
                                     </div>
                                 </div>
                             </div>
@@ -303,12 +299,27 @@
                     </div>
                     <!-- Pagination -->
                     <div class="swiper-pagination"></div>
-                    <button type="button" class="swiper-button-prev" aria-label="Previous student story"></button>
-                    <button type="button" class="swiper-button-next" aria-label="Next student story"></button>
                 </div>
             </div>
         </div>
     </section>
-    
-@endsection
 
+    <section class="py-24 ca-bg-primary relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-8 relative z-10 text-center">
+            <h2 class="font-display-xl text-display-xl text-white mb-6">Ready to Take the Next Step?</h2>
+            <p class="font-body-lg text-body-lg text-slate-400 max-w-2xl mx-auto mb-10">Join hundreds of professionals who
+                have advanced their careers through our accredited programs.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button
+                    class="bg-teal-600 text-white px-10 py-4 font-label-bold text-lg hover:bg-teal-700 rounded-full transition-colors">
+                    Apply for Enrollment
+                </button>
+                <button
+                    class="bg-transparent text-white border border-slate-600 px-10 py-4 font-label-bold text-lg hover:bg-white/5 rounded-full transition-colors">
+                    Download Brochure
+                </button>
+            </div>
+        </div>
+    </section>
+@endsection
