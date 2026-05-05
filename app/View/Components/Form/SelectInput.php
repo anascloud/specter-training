@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Form;
 
 use Closure;
 use Illuminate\Contracts\View\View;
@@ -24,6 +24,6 @@ class SelectInput extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.select-input');
+        return view('components.form.select-input');
     }
 }

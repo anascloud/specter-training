@@ -44,10 +44,5 @@
     @error($name)
         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
     @enderror
-
-    {{-- Custom Error --}}
-    @if($error)
-        <p class="text-red-500 text-xs mt-1">{{ $error }}</p>
-    @endif
-
+    
 </div>

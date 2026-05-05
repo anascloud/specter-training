@@ -78,14 +78,14 @@
                     <p class="text-slate-500 font-body-md">Fill out the form below and an education consultant will contact
                         you within 24 hours.</p>
                     <form class="space-y-3">
-                        <x-input-text label="Full Name" name="full_name" placeholder="John Doe" type="text" />
+                        <x-form.input-text label="Full Name" name="full_name" placeholder="John Doe" type="text" />
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <x-input-text label="Email Address" name="email" placeholder="john@example.com"
+                            <x-form.input-text label="Email Address" name="email" placeholder="john@example.com"
                                 type="email" />
-                            <x-input-text label="Phone Number" name="phone" placeholder="+1 (555) 000-0000"
+                            <x-form.input-text label="Phone Number" name="phone" placeholder="+1 (555) 000-0000"
                                 type="tel" />
                         </div>
-                        <x-select-input name="type" label="Type" value="Hospitality Management" :options="[
+                        <x-form.select-input name="type" label="Type" value="Hospitality Management" :options="[
                             'retail-operations' => 'Retail Operations',
                             'advanced-manufacturing' => 'Advanced Manufacturing',
                             'business-administration' => 'Business Administration',
