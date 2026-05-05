@@ -1,8 +1,8 @@
 <header class="fixed top-0 left-0 w-full z-50 border-b bg-white/95 backdrop-blur-md border-slate-200 shadow-sm">
 
-    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav class="max-w-7xl mx-auto px-5 lg:px-8">
 
-        <div class="flex justify-between items-center h-20">
+        <div class="flex justify-between items-center h-18 md:h-20">
             <!-- Mobile Menu Button -->
             <button id="menuBtn" class="sm:hidden">
 
@@ -87,21 +87,20 @@
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden sm:hidden bg-white border-t border-slate-200 shadow-lg">
 
-        <div class="flex flex-col px-6 py-5 space-y-5">
-
-            <a href="{{ route('landing-page') }}" class="text-teal-600 font-semibold">Home</a>
-            <a href="{{ route('qualifications-page') }}" class="text-slate-700 hover:text-teal-600">Qualifications</a>
-            <a href="{{ route('about-page') }}" class="text-slate-700 hover:text-teal-600">About</a>
-            <a href="{{ route('contact-page') }}" class="text-slate-700 hover:text-teal-600">Contact</a>
-
+        <div class="flex flex-col px-6 py-5 space-y-3 text-base">
+            <a href="{{ route('landing-page') }}"
+                class="{{ request()->routeIs('landing-page') ? 'text-teal-600 font-medium' : 'text-slate-700' }}">Home</a>
+            <a href="{{ route('qualifications-page') }}"
+                class="{{ request()->routeIs('qualifications-page') ? 'text-teal-600 font-medium' : 'text-slate-700' }}">Qualifications</a>
+            <a href="{{ route('about-page') }}"
+                class="{{ request()->routeIs('about-page') ? 'text-teal-600 font-medium' : 'text-slate-700' }}">About</a>
+            <a href="{{ route('contact-page') }}"
+                class="{{ request()->routeIs('contact-page') ? 'text-teal-600 font-medium' : 'text-slate-700' }}">Contact</a>
             <button class="bg-teal-600 text-white py-3 rounded-lg font-normal">
                 Apply Now
             </button>
-
         </div>
-
     </div>
-
 </header>
 
 <script>

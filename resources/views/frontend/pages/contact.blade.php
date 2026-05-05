@@ -7,7 +7,7 @@
 
     <div class="absolute inset-0 bg-black/60"></div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
+    <div class="relative max-w-7xl mx-auto px-5 md:px-8 py-16 sm:py-20 lg:py-28">
         
        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center">
             Contact Us
@@ -21,7 +21,7 @@
 <!-- Contact Info -->
 <section class="py-14 sm:py-20 lg:py-24 bg-white">
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
 
         <!-- Heading -->
         <div class="text-center mb-10 sm:mb-14">
@@ -99,7 +99,7 @@
 <!-- Map Section -->
 <section class="pb-14 sm:pb-20 lg:pb-24 bg-white">
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
 
         <!-- Heading -->
         <div class="text-center mb-8 sm:mb-12">

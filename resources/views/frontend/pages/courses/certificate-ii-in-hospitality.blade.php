@@ -1,297 +1,369 @@
 @extends('frontend.layouts.app')
 
 @section('content')
+
+    {{-- Hero Section --}}
     <section class="-mt-4">
         <div class="relative overflow-hidden">
 
-            {{-- Background Image --}}
+            {{-- Background --}}
             <div class="absolute inset-0">
-                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7DRrvrvyU6gG3zu1OoJa0eKcBclew-hkiW7KRzYWA9k11jhh5ZyY2eDs55VfW3un8abNaMpHKhtxkIhfIEprKBHJSD5rPdWzDeIIJawl6w6h6oaOZix9sHWrg3p5q_MOnGJ8LJhjQOj2EOy8H3WdOkXDkkgcCudyr1rPLrYSEOdpIyvrzLDs4FGECXeHcCdCFcB-VGsSKyzwtrMJbhYpRy-KmX6_NotI7hAvGJq2_zqGJHbBnxdJXqkR5m9rsyBGwDDv_L2KNFA"
-                    alt="Hospitality" class="w-full h-full object-cover">
+                <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7DRrvrvyU6gG3zu1OoJa0eKcBclew-hkiW7KRzYWA9k11jhh5ZyY2eDs55VfW3un8abNaMpHKhtxkIhfIEprKBHJSD5rPdWzDeIIJawl6w6h6oaOZix9sHWrg3p5q_MOnGJ8LJhjQOj2EOy8H3WdOkXDkkgcCudyr1rPLrYSEOdpIyvrzLDs4FGECXeHcCdCFcB-VGsSKyzwtrMJbhYpRy-KmX6_NotI7hAvGJq2_zqGJHbBnxdJXqkR5m9rsyBGwDDv_L2KNFA"
+                    alt="Hospitality"
+                    class="w-full h-full object-cover">
+
                 <div class="absolute inset-0 bg-black/70"></div>
             </div>
 
             {{-- Content --}}
-            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-28">
+            <div class="relative max-w-7xl mx-auto px-5 md:px-8 py-12 sm:py-16 lg:py-24">
 
                 {{-- Badge --}}
-                <div
-                    class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 
-                        px-3 sm:px-4 py-2 rounded-full mb-5 sm:mb-8">
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-3 py-2 rounded-full mb-5">
 
-                    <span class="material-symbols-outlined text-sm sm:text-base">
-                        School
+                    <span class="material-symbols-outlined text-sm">
+                        school
                     </span>
 
-                    <span class="text-[10px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase">
-                        SIT40416 Nationally Recognised
+                    <span class="text-xs font-semibold tracking-widest uppercase text-white">
+                        SIT40421 Nationally Recognised
                     </span>
+
                 </div>
 
                 {{-- Title --}}
-                <h1
-                    class="text-xl sm:text-2xl md:text-3xl lg:text-4xl 
-                       font-bold text-white leading-tight max-w-4xl mb-4 sm:mb-12">
+                <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight max-w-4xl mb-6 sm:mb-10">
                     Certificate IV in Hospitality
                 </h1>
 
                 {{-- Info Cards --}}
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
                     {{-- Duration --}}
-                    <div
-                        class="bg-white/10 backdrop-blur-md border border-white/20 
-                            rounded-2xl p-2.5 sm:p-3 flex items-center gap-4">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-3 flex items-center gap-4">
 
-                        <div
-                            class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-white/10 
-                                flex items-center justify-center flex-shrink-0">
-                            <span class="material-symbols-outlined text-xl">
+                        <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined">
                                 schedule
                             </span>
                         </div>
 
                         <div>
-                            <p class="text-white/70 text-xs sm:text-sm mb-1">
+                            <p class="text-white/70 text-xs mb-1">
                                 Duration
                             </p>
-                            <p class="text-white font-semibold text-sm sm:text-base md:text-lg">
+
+                            <p class="text-white font-semibold">
                                 12 Months
                             </p>
                         </div>
+
                     </div>
 
-
                     {{-- Level --}}
-                    <div
-                        class="bg-white/10 backdrop-blur-md border border-white/20 
-                            rounded-2xl p-2.5 sm:p-3 flex items-center gap-4">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-3 flex items-center gap-4">
 
-                        <div
-                            class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-white/10 
-                                flex items-center justify-center flex-shrink-0">
-                            <span class="material-symbols-outlined text-xl">
+                        <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined">
                                 equalizer
                             </span>
                         </div>
 
                         <div>
-                            <p class="text-white/70 text-xs sm:text-sm mb-1">
+                            <p class="text-white/70 text-xs mb-1">
                                 Level
                             </p>
-                            <p class="text-white font-semibold text-sm sm:text-base md:text-lg">
+
+                            <p class="text-white font-semibold">
                                 Advanced Skillset
                             </p>
                         </div>
+
                     </div>
 
+                    {{-- Fees --}}
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-3 flex items-center gap-4">
 
-                    {{-- Price --}}
-                    <div
-                        class="bg-white/10 backdrop-blur-md border border-white/20 
-                            rounded-2xl p-2.5 sm:p-3 flex items-center gap-4">
-
-                        <div
-                            class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-white/10 
-                                flex items-center justify-center flex-shrink-0">
-                            <span class="material-symbols-outlined text-xl">
+                        <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined">
                                 payments
                             </span>
                         </div>
 
                         <div>
-                            <p class="text-white/70 text-xs sm:text-sm mb-1">
+                            <p class="text-white/70 text-xs mb-1">
                                 Investment
                             </p>
-                            <p class="text-white font-semibold text-sm sm:text-base md:text-lg">
+
+                            <p class="text-white font-semibold">
                                 $2,450.00
                             </p>
                         </div>
+
                     </div>
 
                 </div>
 
             </div>
+
         </div>
     </section>
 
+
+    {{-- Main Section --}}
     <section>
-        <div class="max-w-7xl mx-auto px-8 py-16">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                <!-- Left Content Area -->
-                <div class="lg:col-span-8 space-y-16">
-                    <!-- Overview Section -->
+        <div class="max-w-7xl mx-auto px-5 md:px-8 py-10 sm:py-14 lg:py-16">
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+
+                {{-- Left Content --}}
+                <div class="lg:col-span-8 space-y-12">
+
+                    {{-- Overview --}}
                     <section id="overview">
-                        <h2 class="font-headline-lg text-headline-lg mb-6 flex items-center gap-3">
+
+                        <h2 class="font-headline-lg text-headline-lg mb-5 flex items-center gap-3">
                             <span class="w-8 h-1 bg-brand-600 inline-block"></span>
                             Course Overview
                         </h2>
+
                         <div class="prose prose-slate max-w-none">
-                            <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-6">
-                                The SIT40416 Certificate IV in Hospitality reflects the role of highly skilled operators who
-                                use a broad range of hospitality skills combined with managerial skills and sound knowledge
-                                of industry operations to coordinate hospitality operations. They operate independently,
-                                have responsibility for others and make a range of operational business decisions.
+
+                            <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-5">
+                                The Certificate IV in Hospitality reflects the role of skilled hospitality professionals
+                                who use a broad range of hospitality service, operational, and leadership skills.
+                                Students learn how to coordinate hospitality operations, supervise teams, and
+                                make operational business decisions across different service environments.
                             </p>
+
                             <p class="font-body-md text-body-md text-on-surface-variant">
-                                This qualification provides a pathway to work as a team leader or supervisor in various
-                                hospitality settings, such as restaurants, hotels, catering operations, clubs, pubs, cafes,
-                                and coffee shops.
+                                This qualification prepares learners for supervisory and leadership roles
+                                in restaurants, hotels, catering operations, clubs, cafés, bars,
+                                and other hospitality venues.
                             </p>
+
                         </div>
+
                     </section>
-                    <!-- Curriculum Bento Grid -->
+
+
+                    {{-- Course Structure --}}
                     <section id="curriculum">
-                        <h2 class="font-headline-lg text-headline-lg mb-8 flex items-center gap-3">
-                            <span class="w-8 h-1 brand-600 inline-block"></span>
+
+                        <h2 class="font-headline-lg text-headline-lg mb-6 flex items-center gap-3">
+                            <span class="w-8 h-1 bg-brand-600 inline-block"></span>
                             Course Structure
                         </h2>
+
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <!-- Core Modules -->
-                            <div
-                                class="bg-white border border-slate-200 p-8 rounded shadow-sm hover:shadow-md transition-all">
-                                <span class="material-symbols-outlined text-brand-600 mb-4"
-                                    style="font-size: 32px;">verified</span>
-                                <h3 class="font-headline-md text-headline-md mb-4">Core Modules</h3>
-                                <ul class="space-y-3 font-body-md text-on-surface-variant">
-                                    <li class="flex items-start gap-2">
+
+                            {{-- Core --}}
+                            <div class="bg-white border border-slate-200 p-6 rounded shadow-sm">
+
+                                <span class="material-symbols-outlined text-brand-600 mb-4 text-3xl">
+                                    verified
+                                </span>
+
+                                <h3 class="font-headline-md text-headline-md mb-4">
+                                    Core Modules
+                                </h3>
+
+                                <ul class="space-y-3 text-on-surface-variant">
+
+                                    <li class="flex gap-2">
                                         <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
                                         Manage conflict
                                     </li>
-                                    <li class="flex items-start gap-2">
+
+                                    <li class="flex gap-2">
                                         <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
                                         Manage finances within a budget
                                     </li>
-                                    <li class="flex items-start gap-2">
+
+                                    <li class="flex gap-2">
                                         <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
                                         Lead and manage people
                                     </li>
-                                    <li class="flex items-start gap-2">
+
+                                    <li class="flex gap-2">
                                         <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
                                         Monitor work operations
                                     </li>
-                                    <li class="flex items-start gap-2">
-                                        <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
-                                        Manage diversity in the workplace
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- Electives -->
-                            <div class="bg-slate-50 border border-slate-200 p-8 rounded">
-                                <span class="material-symbols-outlined text-slate-500 mb-4"
-                                    style="font-size: 32px;">category</span>
-                                <h3 class="font-headline-md text-headline-md mb-4">Electives</h3>
-                                <p class="text-on-surface-variant mb-4">Choose 9 electives from categories including:</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span
-                                        class="bg-white px-3 py-1 border border-slate-200 rounded text-xs font-label-bold text-on-surface-variant">Kitchen
-                                        Management</span>
-                                    <span
-                                        class="bg-white px-3 py-1 border border-slate-200 rounded text-xs font-label-bold text-on-surface-variant">Bar
-                                        Operations</span>
-                                    <span
-                                        class="bg-white px-3 py-1 border border-slate-200 rounded text-xs font-label-bold text-on-surface-variant">WHS
-                                        Management</span>
-                                    <span
-                                        class="bg-white px-3 py-1 border border-slate-200 rounded text-xs font-label-bold text-on-surface-variant">Events</span>
-                                    <span
-                                        class="bg-white px-3 py-1 border border-slate-200 rounded text-xs font-label-bold text-on-surface-variant">Marketing</span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <!-- Outcomes Section -->
-                    <section class="bg-surface-container p-10 rounded" id="outcomes">
-                        <div class="flex flex-col md:flex-row gap-12">
-                            <div class="flex-1">
-                                <h2 class="font-headline-lg text-headline-lg mb-6">Career Outcomes</h2>
-                                <p class="font-body-md text-on-surface-variant mb-6">Upon successful completion of this
-                                    qualification, students are prepared for leadership roles in the global hospitality
-                                    sector.</p>
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    <div class="flex items-center gap-3 bg-white p-4 rounded border border-slate-200">
-                                        <span class="material-symbols-outlined text-brand-600">person_celebrate</span>
-                                        <span class="font-label-bold">Duty Manager</span>
-                                    </div>
-                                    <div class="flex items-center gap-3 bg-white p-4 rounded border border-slate-200">
-                                        <span class="material-symbols-outlined text-brand-600">restaurant</span>
-                                        <span class="font-label-bold">Restaurant Manager</span>
-                                    </div>
-                                    <div class="flex items-center gap-3 bg-white p-4 rounded border border-slate-200">
-                                        <span class="material-symbols-outlined text-brand-600">liquor</span>
-                                        <span class="font-label-bold">Bar Supervisor</span>
-                                    </div>
-                                    <div class="flex items-center gap-3 bg-white p-4 rounded border border-slate-200">
-                                        <span class="material-symbols-outlined text-brand-600">bed</span>
-                                        <span class="font-label-bold">Front Office Manager</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="md:w-1/3">
-                                <img alt="Hospitality professional in action"
-                                    class="rounded-lg shadow-lg w-full h-full object-cover"
-                                    data-alt="professional male manager in a crisp suit standing in a modern luxury hotel lobby, blurred background, warm interior lighting"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbBIEMlEEqMe0sC6KvqTxAyaFamqAN-mswEaNfIEQl3K30Gu_ThLpKe5HtIxY2I5w0Xm0eTBjyc1whn72mktjoT9AEbIVLyQUi2Ciubqv0hgS9Rny6Xaw1iKJ4h0EoTslKXMaYzi2HS5891hSLG_a0rVUH2FDXEIM0wtPKaYNFbammzks12W3GtTOoyRg52fol-jzsnZUuT5wLpbWmZUQep3Zql0zZHwmzez2sVjGZI1j9OFuBGlIUNY09cgX_ChNZeuCRRkxcAQ">
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <!-- Right Sticky Sidebar -->
-                <aside class="lg:col-span-4">
-                    <div class="sticky-sidebar sticky space-y-6">
-                        <!-- Quick Apply Form -->
-                        <div class="bg-white border border-slate-200 rounded-lg shadow-sm p-8 overflow-hidden relative">
-                            <div class="absolute top-0 left-0 w-1 h-full brand-600"></div>
-                            <div class="mb-6">
-                                <h3 class="font-headline-md text-headline-md mb-2">Quick Apply</h3>
-                                <p class="text-caption font-caption text-on-surface-variant">Start your application in under
-                                    2 minutes.</p>
-                            </div>
-                            <form class="space-y-4">
-                                <x-input-text label="Full Name" name="full_name" placeholder="John Doe" type="text" />
-                                <x-input-text label="Email Address" name="email" placeholder="john@example.com"
-                                    type="email" />
-                                <x-input-text label="Phone Number" name="phone" placeholder="+1 (555) 000-0000"
-                                    type="tel" />
-                                <button
-                                    class="w-full bg-teal-600 text-white rounded py-2.5 font-semibold text-base active:scale-95 transition-transform mt-4"
-                                    type="submit">
-                                    Apply Now
-                                </button>
-                            </form>
-                            <!-- Enrollment Deadline -->
-                            <div class="mt-8 pt-8 border-t border-slate-100">
-                                <div class="flex items-start gap-4">
-                                    <div
-                                        class="w-12 h-12 bg-red-100 text-red-600 rounded flex items-center justify-center shrink-0">
-                                        <span class="material-symbols-outlined">event_busy</span>
-                                    </div>
-                                    <div>
-                                        <p class="font-label-bold text-sm text-red-600">Next Intake Closes</p>
-                                        <p class="font-headline-md text-on-surface">Oct 14, 2024</p>
-                                        <p class="text-caption font-caption text-on-surface-variant mt-1">Only 6 spots
-                                            remaining for this cohort.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Secondary Actions -->
-                        <div class="grid grid-cols-1 gap-4">
-                            <a href="{{ route('download.brochure') }}"
-                                class="w-full border border-primary-container text-primary-container py-3 rounded font-label-bold hover:bg-slate-50 transition-colors flex items-center justify-center gap-2">
-                                Download Brochure
-                            </a>
-                            <a href="mailto:mannan.hbdservices@gmail.com"
-                                class="flex items-center justify-center gap-3 w-full bg-slate-100 text-on-surface-variant py-3 rounded font-label-bold hover:bg-slate-200 transition-colors">
 
-                                <span class="material-symbols-outlined text-sm">mail</span>
+                                    <li class="flex gap-2">
+                                        <span class="material-symbols-outlined text-xs mt-1">check_circle</span>
+                                        Manage workplace diversity
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+
+                            {{-- Electives --}}
+                            <div class="bg-slate-50 border border-slate-200 p-6 rounded">
+
+                                <span class="material-symbols-outlined text-slate-500 mb-4 text-3xl">
+                                    category
+                                </span>
+
+                                <h3 class="font-headline-md text-headline-md mb-4">
+                                    Electives
+                                </h3>
+
+                                <p class="text-on-surface-variant mb-4">
+                                    Choose elective units from areas such as:
+                                </p>
+
+                                <div class="flex flex-wrap gap-2">
+
+                                    <span class="bg-white px-3 py-1 border rounded text-xs">
+                                        Kitchen Management
+                                    </span>
+
+                                    <span class="bg-white px-3 py-1 border rounded text-xs">
+                                        Bar Operations
+                                    </span>
+
+                                    <span class="bg-white px-3 py-1 border rounded text-xs">
+                                        WHS Management
+                                    </span>
+
+                                    <span class="bg-white px-3 py-1 border rounded text-xs">
+                                        Events
+                                    </span>
+
+                                    <span class="bg-white px-3 py-1 border rounded text-xs">
+                                        Marketing
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    {{-- Outcomes --}}
+                    <section class="bg-surface-container p-6 sm:p-8 rounded" id="outcomes">
+
+                        <h2 class="font-headline-lg text-headline-lg mb-6">
+                            Career Outcomes
+                        </h2>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                            <div class="bg-white p-4 rounded border">
+                                Duty Manager
+                            </div>
+
+                            <div class="bg-white p-4 rounded border">
+                                Restaurant Manager
+                            </div>
+
+                            <div class="bg-white p-4 rounded border">
+                                Bar Supervisor
+                            </div>
+
+                            <div class="bg-white p-4 rounded border">
+                                Front Office Manager
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+
+                {{-- Sidebar --}}
+                <aside class="lg:col-span-4">
+
+                    <div class="lg:sticky lg:top-24 space-y-6">
+
+                        {{-- Form --}}
+                        <div class="bg-white border border-slate-200 rounded-lg shadow-sm p-6">
+
+                            <div class="mb-6">
+
+                                <h3 class="font-headline-md mb-2">
+                                    Quick Apply
+                                </h3>
+
+                                <p class="text-sm text-on-surface-variant">
+                                    Start your application in under 2 minutes.
+                                </p>
+
+                            </div>
+
+                            <form class="space-y-4">
+
+                                <x-input-text
+                                    label="Full Name"
+                                    name="full_name"
+                                    placeholder="John Doe"
+                                    type="text" />
+
+                                <x-input-text
+                                    label="Email Address"
+                                    name="email"
+                                    placeholder="john@example.com"
+                                    type="email" />
+
+                                <x-input-text
+                                    label="Phone Number"
+                                    name="phone"
+                                    placeholder="+1 (555) 000-0000"
+                                    type="tel" />
+
+                                <button
+                                    type="submit"
+                                    class="w-full bg-teal-600 text-white rounded py-3 font-semibold">
+
+                                    Apply Now
+
+                                </button>
+
+                            </form>
+
+                        </div>
+
+
+                        {{-- Actions --}}
+                        <div class="grid gap-4">
+
+                            <a
+                                href="{{ route('download.brochure') }}"
+                                class="w-full border border-slate-300 py-3 rounded text-center font-semibold">
+
+                                Download Brochure
+
+                            </a>
+
+                            <a
+                                href="mailto:mannan.hbdservices@gmail.com"
+                                class="w-full bg-slate-100 py-3 rounded flex justify-center items-center gap-2 font-semibold">
+
+                                <span class="material-symbols-outlined text-sm">
+                                    mail
+                                </span>
 
                                 Enquire via Email
+
                             </a>
+
                         </div>
+
                     </div>
+
                 </aside>
+
             </div>
+
         </div>
     </section>
+
 @endsection

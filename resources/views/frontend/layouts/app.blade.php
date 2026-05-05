@@ -16,7 +16,7 @@
     @include('frontend.layouts.navbar')
 
     <main class="flex-grow">
-       <div class="pt-24 pb-12">
+       <div class="pt-22 md:pt-24 pb-12">
          @yield('content')
        </div>
     </main>

@@ -1,5 +1,5 @@
 <footer class="w-full border-t bg-slate-50 border-slate-200">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-5 md:px-8 py-16">
         <div class="space-y-6">
             <div class="text-lg font-bold text-slate-900 font-public-sans">Specter Training</div>
             <ul class="text-slate-500 font-medium hover:text-slate-900 transition-colors font-public-sans text-sm">
@@ -56,7 +56,7 @@
         </div>
     </div>
     <div class="border-t border-slate-200 py-8">
-        <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="max-w-7xl mx-auto px-5 md:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <p class="text-slate-500 text-xs md:text-sm">© 2024 Specter Training. Authority in Education.</p>
             <div class="flex gap-8">
                 <span class="text-caption text-xs md:text-sm text-slate-400">RTO Code: 89012</span>

@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="py-0 md:py-8 lg:py-12">
-        <div class="max-w-7xl mx-auto px-8">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
             <h1 class="lg:text-4xl md:text-3xl text-2xl font-bold text-slate-900 mb-3">Qualifications Catalog</h1>
             <p class="font-body-md text-slate-500 leading-relaxed mb-6 w-full lg:w-1/2">Explore our nationally recognized
                 training programs designed to elevate your professional trajectory and secure your future in high-growth
@@ -11,7 +11,7 @@
     </section>
 
     <section>
-        <div class="max-w-7xl mx-auto px-8">
+        <div class="max-w-7xl mx-auto px-5 md:px-8">
             <div class="border border-gray-200 p-6 bg-white rounded-md">
                 <form id="qualification-filter-form" method="GET" action="{{ route('qualifications-page') }}">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
