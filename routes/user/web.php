@@ -10,5 +10,7 @@ Route::get('/qualifications', [FrontendController::class, 'qualificationsPage'])
 Route::get('/contact', [FrontendController::class, 'contactPage'])->name('contact-page');
 
 
-Route::get('/courses/{slug}', [CourseController::class, 'show'])->name('courses.show');
+// Route::get('/courses/{slug}', [CourseController::class, 'show'])->name('courses.show');
+Route::get('/qualifications/{slug}', [CourseController::class, 'courseDetails'])
+    ->name('courses.show');
 Route::post('/apply', [CourseController::class, 'apply'])->name('courses.apply');
