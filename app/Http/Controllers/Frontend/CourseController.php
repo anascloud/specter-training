@@ -3,53 +3,44 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Services\CourseService; 
 
 class CourseController extends Controller
 {
-  public function courseDetails($slug)
-{
-    $path = public_path('/courses.json');
+    protected $courseService;
 
-    if (!file_exists($path)) {
-        abort(500, 'Courses file missing');
+    /**
+     * Inject the CourseService.
+     */
+    public function __construct(CourseService $courseService)
+    {
+        $this->courseService = $courseService;
     }
 
-    $json = file_get_contents($path);
-    $data = json_decode($json, true);
+    public function courseDetails($slug)
+    {
+        // Fetch all courses using the global service
+        $courses = $this->courseService->getCourses();
 
-    if (json_last_error() !== JSON_ERROR_NONE) {
-        abort(500, json_last_error_msg());
+        // Find the specific course by slug
+        $course = $courses->firstWhere('slug', $slug);
+
+        // If course doesn't exist in JSON, 404
+        if (!$course) {
+            abort(404);
+        }
+
+        // Define the specific view path
+        $view = 'frontend.pages.courses.' . $slug;
+
+        // Ensure the Blade file actually exists before rendering
+        if (!view()->exists($view)) {
+            abort(404, 'Course page template not found');
+        }
+
+        return view($view, [
+            'course' => $course,
+            'title' => $course['title']
+        ]);
     }
-
-    $courses = collect($data['courses']);
-
-    $course = $courses->firstWhere('slug', $slug);
-
-    if (!$course) {
-        abort(404);
-    }
-
-    $view = 'frontend.pages.courses.' . $slug;
-
-    if (!view()->exists($view)) {
-        abort(404, 'Course page not found');
-    }
-
-    return view($view, [
-        'course' => $course,
-        'title' => $course['title']
-    ]);
-}
-
-    //  private function getCourses()
-    // {
-    //     $path = public_path('/courses.json');
-
-    //     if (!file_exists($path)) {
-    //         return collect();
-    //     }
-
-    //     return collect(json_decode(file_get_contents($path), true)['courses']);
-    // }
 }
