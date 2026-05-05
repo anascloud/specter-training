@@ -3,7 +3,7 @@
 @section('content')
 
     {{-- Hero Section --}}
-    <section class="relative min-h-[520px] lg:min-h-[600px] flex items-center overflow-hidden -mt-4">
+    <section class="relative py-8 md:py-0 min-h-[420px] md:min-h-[520px] lg:min-h-[600px] flex items-center overflow-hidden -mt-4">
 
         <div class="absolute inset-0 z-0">
             <img
@@ -19,7 +19,7 @@
 
             <div class="max-w-2xl">
 
-                <h1 class="text-white font-bold text-3xl sm:text-4xl lg:text-5xl leading-tight mb-4 sm:mb-6">
+                <h1 class="text-white font-bold text-2xl sm:text-3xl lg:text-4xl leading-tight mb-4 sm:mb-6">
                     Empowering the Next Generation of Professionals
                 </h1>
 
