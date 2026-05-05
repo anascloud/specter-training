@@ -344,3 +344,8 @@ body {
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
 }
+
+.bg-primary-container {
+    --tw-bg-opacity: 1;
+    background-color: rgb(19 27 46 / var(--tw-bg-opacity, 1));
+}

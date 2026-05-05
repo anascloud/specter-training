@@ -17,10 +17,10 @@
                     specialized professional development programs.
                 </p>
                 <div class="flex items-center gap-4">
-                    <button
+                    <a href="/qualifications"
                         class="bg-teal-600 text-white rounded-full px-8 py-4 font-semibold text-md shadow-lg shadow-teal-900/20 active:scale-95 transition-all">
                         Explore All Courses
-                    </button>
+                    </a>
                     <div class="flex -space-x-3">
                         <img class="w-10 h-10 rounded-full border-2 border-white object-cover"
                             data-alt="close-up portrait of a professional woman smiling in a bright office environment"
@@ -61,7 +61,7 @@
                             type="submit">
                             Submit Application
                         </button>
-                        <p class="text-center text-caption text-slate-400">By submitting, you agree to our Privacy Policy.
+                        <p class="text-center text-xs md:text-sm text-slate-400 ">By submitting, you agree to our Privacy Policy.
                         </p>
                     </form>
                 </div>
@@ -101,7 +101,7 @@
                         provide practical, immediate value to your professional career.</p>
                 </div>
                 <a class="text-brand-600 font-semibold flex items-center gap-2 group border-b border-brand-600/0 hover:border-brand-600 transition-all"
-                    href="#">
+                    href="/qualifications">
                     View All Qualifications
                     <span aria-hidden="true" class="text-base">→</span>
                 </a>
@@ -129,7 +129,7 @@
                     [
                         'name' => 'Carly Bishop',
                         'designation' => 'Individual Support',
-                        'image' => 'author-1.png',
+                        'image' => 'teacher__1.jpg',
                         'rating' => 4,
                         'text' =>
                             'I highly recommend them, I was hired before finishing my placement and love working in this industry...',
@@ -137,21 +137,21 @@
                     [
                         'name' => 'Roslyn Brakes',
                         'designation' => 'Aged Care',
-                        'image' => 'author-2.png',
+                        'image' => 'teacher__2.jpg',
                         'rating' => 4,
                         'text' => 'I completed my certificate IV in ageing support and have no complaints...',
                     ],
                     [
                         'name' => 'Jess Heffernan',
                         'designation' => 'Community Service',
-                        'image' => 'author-3.png',
+                        'image' => 'teacher__3.jpg',
                         'rating' => 4,
                         'text' => 'Had a great experience with them. great place to study...',
                     ],
                     [
                         'name' => 'Md Abdul Mannan',
                         'designation' => 'Community Service',
-                        'image' => 'author-3.png',
+                        'image' => 'teacher__4.jpg',
                         'rating' => 4,
                         'text' => 'Had a great experience with them. great place to study...',
                     ],
@@ -182,7 +182,7 @@
 
                                     <!-- Text -->
                                     <p
-                                        class="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 flex-grow line-clamp-3">
+                                        class="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 flex-grow line-clamp-2">
                                         {{ $review['text'] }}
                                     </p>
 
@@ -190,7 +190,7 @@
                                     <div class="flex items-center justify-between mt-auto">
 
                                         <div class="flex items-center gap-3">
-                                            <img src="{{ asset('frontend/images/testimonial/' . $review['image']) }}"
+                                            <img src="{{ asset('frontend-img/' . $review['image']) }}"
                                                 alt="{{ $review['name'] }}"
                                                 class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover">
 
@@ -227,11 +227,12 @@
                 <button
                     class="bg-teal-600 text-white px-10 py-4 font-label-bold text-lg hover:bg-teal-700 rounded-full transition-colors">
                     Apply for Enrollment
-                </button>
-                <button
-                    class="bg-transparent text-white border border-slate-600 px-10 py-4 font-label-bold text-lg hover:bg-white/5 rounded-full transition-colors">
-                    Download Brochure
-                </button>
+                </button>             
+
+                <a href="{{ route('download.brochure') }}" 
+                            class="bg-transparent text-white border border-slate-600 px-10 py-4 font-label-bold text-lg hover:bg-white/5 rounded-full transition-colors flex items-center justify-center gap-2">
+                            Download Brochure
+                        </a>
             </div>
         </div>
     </section>

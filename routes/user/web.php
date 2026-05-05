@@ -10,7 +10,7 @@ Route::get('/qualifications', [FrontendController::class, 'qualificationsPage'])
 Route::get('/contact', [FrontendController::class, 'contactPage'])->name('contact-page');
 
 
-// Route::get('/courses/{slug}', [CourseController::class, 'show'])->name('courses.show');
+
 Route::get('/qualifications/{slug}', [CourseController::class, 'courseDetails'])
     ->name('courses.show');
 Route::post('/apply', [CourseController::class, 'apply'])->name('courses.apply');
@@ -21,3 +21,10 @@ Route::get('/legal/privacy-policy', [FrontendController::class, 'privacyPolicy']
 Route::get('/legal/terms-of-service', [FrontendController::class, 'termsOfService'])->name('legal.terms-of-service');
 Route::get('/legal/accreditations', [FrontendController::class, 'accreditations'])->name('legal.accreditations');
 Route::get('/legal/cookie-policy', [FrontendController::class, 'cookiePolicy'])->name('legal.cookie-policy');
+
+Route::get('/download-brochure', function () {
+    return response()->download(
+        public_path('brochure.pdf'),
+        'brochure.pdf'
+    );
+})->name('download.brochure');

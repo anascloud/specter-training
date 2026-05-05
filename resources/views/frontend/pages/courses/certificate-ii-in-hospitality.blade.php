@@ -210,8 +210,7 @@
                                     sector.</p>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div class="flex items-center gap-3 bg-white p-4 rounded border border-slate-200">
-                                        <span
-                                            class="material-symbols-outlined text-brand-600">person_celebrate</span>
+                                        <span class="material-symbols-outlined text-brand-600">person_celebrate</span>
                                         <span class="font-label-bold">Duty Manager</span>
                                     </div>
                                     <div class="flex items-center gap-3 bg-white p-4 rounded border border-slate-200">
@@ -249,32 +248,13 @@
                                     2 minutes.</p>
                             </div>
                             <form class="space-y-4">
-                                <div>
-                                    <label
-                                        class="block text-xs font-label-bold uppercase tracking-wider mb-2 text-on-surface-variant">Full
-                                        Name</label>
-                                    <input
-                                        class="w-full border border-slate-300 rounded px-4 py-3 focus:border-brand-600 focus:ring-0 transition-colors bg-slate-50"
-                                        type="text">
-                                </div>
-                                <div>
-                                    <label
-                                        class="block text-xs font-label-bold uppercase tracking-wider mb-2 text-on-surface-variant">Email
-                                        Address</label>
-                                    <input
-                                        class="w-full border border-slate-300 rounded px-4 py-3 focus:border-brand-600 focus:ring-0 transition-colors bg-slate-50"
-                                        type="email">
-                                </div>
-                                <div>
-                                    <label
-                                        class="block text-xs font-label-bold uppercase tracking-wider mb-2 text-on-surface-variant">Phone
-                                        Number</label>
-                                    <input
-                                        class="w-full border border-slate-300 rounded px-4 py-3 focus:border-brand-600 focus:ring-0 transition-colors bg-slate-50"
-                                        type="tel">
-                                </div>
+                                <x-input-text label="Full Name" name="full_name" placeholder="John Doe" type="text" />
+                                <x-input-text label="Email Address" name="email" placeholder="john@example.com"
+                                    type="email" />
+                                <x-input-text label="Phone Number" name="phone" placeholder="+1 (555) 000-0000"
+                                    type="tel" />
                                 <button
-                                    class="w-full brand-600 text-white py-4 rounded font-label-bold uppercase tracking-widest text-sm hover:brightness-110 active:scale-[0.98] transition-all mt-4"
+                                    class="w-full bg-teal-600 text-white rounded py-2.5 font-semibold text-base active:scale-95 transition-transform mt-4"
                                     type="submit">
                                     Apply Now
                                 </button>
@@ -283,11 +263,11 @@
                             <div class="mt-8 pt-8 border-t border-slate-100">
                                 <div class="flex items-start gap-4">
                                     <div
-                                        class="w-12 h-12 bg-error-container text-on-error-container rounded flex items-center justify-center shrink-0">
+                                        class="w-12 h-12 bg-red-100 text-red-600 rounded flex items-center justify-center shrink-0">
                                         <span class="material-symbols-outlined">event_busy</span>
                                     </div>
                                     <div>
-                                        <p class="font-label-bold text-sm text-error">Next Intake Closes</p>
+                                        <p class="font-label-bold text-sm text-red-600">Next Intake Closes</p>
                                         <p class="font-headline-md text-on-surface">Oct 14, 2024</p>
                                         <p class="text-caption font-caption text-on-surface-variant mt-1">Only 6 spots
                                             remaining for this cohort.</p>
@@ -297,16 +277,17 @@
                         </div>
                         <!-- Secondary Actions -->
                         <div class="grid grid-cols-1 gap-4">
-                            <button
-                                class="flex items-center justify-center gap-3 w-full border border-primary-container text-primary-container py-3 rounded font-label-bold hover:bg-slate-50 transition-colors">
-                                <span class="material-symbols-outlined text-sm">download</span>
+                            <a href="{{ route('download.brochure') }}"
+                                class="w-full border border-primary-container text-primary-container py-3 rounded font-label-bold hover:bg-slate-50 transition-colors flex items-center justify-center gap-2">
                                 Download Brochure
-                            </button>
-                            <button
+                            </a>
+                            <a href="mailto:mannan.hbdservices@gmail.com"
                                 class="flex items-center justify-center gap-3 w-full bg-slate-100 text-on-surface-variant py-3 rounded font-label-bold hover:bg-slate-200 transition-colors">
+
                                 <span class="material-symbols-outlined text-sm">mail</span>
+
                                 Enquire via Email
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </aside>
