@@ -113,11 +113,11 @@
                 </button>
 
                 <!-- Notification Dropdown -->
-                <x-header.notification-dropdown />
+                <x-backend.header.notification-dropdown />
             </div>
 
             <!-- User Dropdown -->
-            <x-header.user-dropdown />
+            <x-backend.header.user-dropdown />
         </div>
     </div>
 </header>

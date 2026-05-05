@@ -12,3 +12,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     })->name('dashboard');
 
 });
+
+Route::get('/admin/login', function () {
+    return view('backend.pages.auth.signin', [
+        'title' => 'Admin Login'
+    ]);
+})->name('admin.login');
