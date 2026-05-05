@@ -90,4 +90,22 @@ class FrontendController extends Controller
 
         return collect(json_decode(file_get_contents($path), true)['courses']);
     }
+
+    // legal pages
+    public function privacyPolicy()
+    {
+        return view('frontend.pages.legal.privacy-policy', ['title' => 'Privacy Policy']);
+    }
+    public function termsOfService()
+    {
+        return view('frontend.pages.legal.terms-of-service', ['title' => 'Terms of Service']);
+    }
+    public function accreditations()
+    {
+        return view('frontend.pages.legal.accreditations', ['title' => 'Accreditations']);
+    }
+    public function cookiePolicy()
+    {
+        return view('frontend.pages.legal.cookie-policy', ['title' => 'Cookie Policy']);
+    }
 }

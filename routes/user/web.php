@@ -14,3 +14,10 @@ Route::get('/contact', [FrontendController::class, 'contactPage'])->name('contac
 Route::get('/qualifications/{slug}', [CourseController::class, 'courseDetails'])
     ->name('courses.show');
 Route::post('/apply', [CourseController::class, 'apply'])->name('courses.apply');
+
+
+// legal page
+Route::get('/legal/privacy-policy', [FrontendController::class, 'privacyPolicy'])->name('legal.privacy-policy');
+Route::get('/legal/terms-of-service', [FrontendController::class, 'termsOfService'])->name('legal.terms-of-service');
+Route::get('/legal/accreditations', [FrontendController::class, 'accreditations'])->name('legal.accreditations');
+Route::get('/legal/cookie-policy', [FrontendController::class, 'cookiePolicy'])->name('legal.cookie-policy');

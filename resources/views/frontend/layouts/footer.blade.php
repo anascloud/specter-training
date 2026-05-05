@@ -23,13 +23,13 @@
             <h4 class="font-label-bold text-slate-900 uppercase tracking-widest text-xs">Qualifications</h4>
             <ul class="space-y-1">
                 <li><a class="text-slate-500 font-medium hover:text-slate-900 transition-colors font-public-sans text-sm"
-                        href="#">Hospitality</a></li>
+                        href="qualifications/certificate-ii-in-hospitality">Hospitality</a></li>
                 <li><a class="text-slate-500 font-medium hover:text-slate-900 transition-colors font-public-sans text-sm"
-                        href="#">Retail</a></li>
+                        href="qualifications/certificate-ii-in-retail">Retail</a></li>
                 <li><a class="text-slate-500 font-medium hover:text-slate-900 transition-colors font-public-sans text-sm"
-                        href="#">Manufacturing</a></li>
+                        href="qualifications/certificate-ii-in-manufacturing">Manufacturing</a></li>
                 <li><a class="text-slate-500 font-medium hover:text-slate-900 transition-colors font-public-sans text-sm"
-                        href="#">Business</a></li>
+                        href="qualifications/certificate-ii-in-business">Business</a></li>
             </ul>
         </div>
       
@@ -37,13 +37,13 @@
             <h4 class="font-label-bold text-slate-900 uppercase tracking-widest text-xs">Legal</h4>
             <ul class="space-y-1">
                 <li><a class="text-slate-500 font-medium hover:text-slate-900 transition-colors font-public-sans text-sm"
-                        href="#">Privacy Policy</a></li>
+                        href="legal/privacy-policy">Privacy Policy</a></li>
                 <li><a class="text-slate-500 font-medium hover:text-slate-900 transition-colors font-public-sans text-sm"
-                        href="#">Terms of Service</a></li>
+                        href="legal/terms-of-service">Terms of Service</a></li>
                 <li><a class="text-slate-500 font-medium hover:text-slate-900 transition-colors font-public-sans text-sm"
-                        href="#">Accreditations</a></li>
+                        href="legal/accreditations">Accreditations</a></li>
                 <li><a class="text-slate-500 font-medium hover:text-slate-900 transition-colors font-public-sans text-sm"
-                        href="#">Cookie Policy</a></li>
+                        href="legal/cookie-policy">Cookie Policy</a></li>
             </ul>
         </div>
         <div class="space-y-6">
