@@ -12,7 +12,7 @@
                 + Add New SEO
             </a>
         </div>
-@include('backend.pages.seo.table')
+@include('backend.pages.seo.table', ['items' => $items])
 </div>
 
 @endsection

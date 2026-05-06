@@ -1,7 +1,7 @@
 <div x-data="{
     {{-- 1. Corrected Data Structure for SEO --}}
     tableRowData: [
-        @foreach($seoEntries as $entry)
+        @foreach($items as $entry)
         {
             id: '{{ $entry->id }}',
             path: '{{ $entry->path }}',
@@ -99,7 +99,7 @@
                                 <td class="px-5 py-4 text-right">
                                     <div class="flex justify-end gap-2">
                                         {{-- Edit Button --}}
-                                        <a :href="'/admin/seo/edit/' + row.id" class="p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-all">
+                                        <a :href="'/admin/seo/' + row.id + '/edit'" class="p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-all">
                                             <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                             </svg>
