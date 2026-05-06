@@ -1,5 +1,6 @@
 <?php
 
+use App\SEO\Controllers\SeoController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -10,7 +11,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             'title' => 'Admin Dashboard'
         ]);
     })->name('dashboard');
-    
+    Route::resource('seo', SeoController::class);
 
 });
 
