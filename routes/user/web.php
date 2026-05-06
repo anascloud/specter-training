@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Frontend\CourseController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\SEO\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class, 'landingPage'])->name('home');
@@ -28,3 +29,6 @@ Route::get('/download-brochure', function () {
         'brochure.pdf'
     );
 })->name('download.brochure');
+
+
+Route::get('/generate-sitemap', [SitemapController::class, 'generate']);
