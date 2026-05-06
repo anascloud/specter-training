@@ -1,19 +1,18 @@
 @php
     use App\SEO\Models\SeoMeta;
     $path = request()->route()->getName();
+    $uri = request()->getRequestUri();
     $seo = SeoMeta::query()
-            ->where('path', $path)
+            ->whereIn('path', [$path, $uri])
             ->where('is_active', true)
             ->first();
-
-            dd($path, $seo);
 @endphp
 
 
     <title>{{ $seo->meta_title ?? config('app.name') }}</title>
 
-<meta name="description" content="{{ $seo->meta_description }}">
-<meta name="keywords" content="{{ $seo->meta_keywords }}">
+<meta name="description" content="{{ $seo->meta_description ?? '' }}">
+<meta name="keywords" content="{{ $seo->meta_keywords ?? '' }}">
 <meta name="robots" content="{{ $seo->robots ?? 'index,follow' }}">
 
 <link rel="canonical" href="{{ $seo->canonical_url ?? url()->current() }}">

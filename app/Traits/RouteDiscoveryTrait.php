@@ -49,19 +49,33 @@ trait RouteDiscoveryTrait
         | Dynamic Course Routes
         |--------------------------------------------------------------------------
         */
+        // if (method_exists($this, 'getCourses')) {
+
+        //     foreach ($this->getCourses() as $course) {
+
+        //         if (!isset($course['slug'], $course['title'])) {
+        //             continue;
+        //         }
+
+        //         $key = $course['slug']; 
+
+        //         $routes[$key] = $course['title'];
+        //     }
+        // }
         if (method_exists($this, 'getCourses')) {
 
-            foreach ($this->getCourses() as $course) {
+    foreach ($this->getCourses() as $course) {
 
-                if (!isset($course['slug'], $course['title'])) {
-                    continue;
-                }
-
-                $key = $course['slug'];
-
-                $routes[$key] = $course['title'];
-            }
+        if (!isset($course['slug'], $course['title'])) {
+            continue;
         }
+
+        // Generates: qualifications/certificate-ii-in-hospitality
+        $key = route('qualifications.details', $course['slug'], false);
+
+        $routes[$key] = $course['title'];
+    }
+}
 
         return $routes;
     }
