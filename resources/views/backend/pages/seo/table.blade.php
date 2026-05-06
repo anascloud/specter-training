@@ -1,14 +1,20 @@
 @php
     use Illuminate\Support\Str;
+    use Illuminate\Support\Facades\Storage;
 
     $collection = $items instanceof \Illuminate\Pagination\AbstractPaginator ? $items->getCollection() : collect($items);
     $tableRowData = $collection->map(function ($entry) {
+        $ogImageUrl = null;
+        if ($entry->og_image && Storage::disk('public')->exists($entry->og_image)) {
+            $ogImageUrl = Storage::disk('public')->url($entry->og_image);
+        }
+
         return [
             'id' => $entry->id,
             'path' => (string) $entry->path,
             'metaTitle' => Str::limit((string) ($entry->meta_title ?? ''), 40),
             'metaKeywords' => Str::limit((string) ($entry->meta_keywords ?? ''), 30),
-            'ogImage' => $entry->og_image ? asset('storage/' . $entry->og_image) : null,
+            'ogImage' => $ogImageUrl,
             'metaScore' => $entry->meta_description ? 80 : 40,
             'googleScore' => $entry->schema_markup ? 95 : 60,
         ];
@@ -18,23 +24,8 @@
 <div x-data="{
     seoBaseUrl: {{ \Illuminate\Support\Js::from(url('/admin/seo')) }},
     tableRowData: {{ \Illuminate\Support\Js::from($tableRowData) }},
-    selectedRows: [],
-    selectAll: false,
     showDeleteModal: false,
     rowToDelete: null,
-
-    handleSelectAll() {
-        this.selectAll = !this.selectAll;
-        this.selectedRows = this.selectAll ? this.tableRowData.map(row => row.id) : [];
-    },
-
-    handleRowSelect(id) {
-        if (this.selectedRows.includes(id)) {
-            this.selectedRows = this.selectedRows.filter(rowId => rowId !== id);
-        } else {
-            this.selectedRows.push(id);
-        }
-    },
 
     openDeleteModal(row) {
         this.rowToDelete = row;
@@ -92,18 +83,7 @@
                 <table class="w-full text-left border-collapse">
                     <thead class="bg-gray-50 dark:bg-white/[0.02] border-b border-gray-100 dark:border-white/[0.05]">
                         <tr>
-                            <th class="px-5 py-4">
-                                <div class="flex items-center gap-3">
-                                    <div @click="handleSelectAll()"
-                                         class="flex h-5 w-5 cursor-pointer items-center justify-center rounded-md border-[1.25px]"
-                                         :class="selectAll ? 'border-blue-500 bg-blue-500' : 'bg-white dark:bg-transparent border-gray-300 dark:border-gray-700'">
-                                        <svg :class="selectAll ? 'block' : 'hidden'" width="12" height="12" viewBox="0 0 14 14" fill="none">
-                                            <path d="M11.6668 3.5L5.25016 9.91667L2.3335 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </div>
-                                    <span class="text-xs font-medium text-gray-500 uppercase tracking-wider">Path/Route</span>
-                                </div>
-                            </th>
+                            <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider">Path/Route</th>
                             <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider">Meta Title</th>
                             <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider">Keywords</th>
                             <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider">Meta Score</th>
@@ -122,16 +102,7 @@
                         <template x-for="row in tableRowData" :key="row.id">
                             <tr class="hover:bg-gray-50/50 dark:hover:bg-white/[0.01] transition-colors">
                                 <td class="px-5 py-4">
-                                    <div class="flex items-center gap-3">
-                                        <div @click="handleRowSelect(row.id)"
-                                             class="flex h-5 w-5 cursor-pointer items-center justify-center rounded-md border-[1.25px]"
-                                             :class="selectedRows.includes(row.id) ? 'border-blue-500 bg-blue-500' : 'bg-white dark:bg-transparent border-gray-300 dark:border-gray-700'">
-                                            <svg :class="selectedRows.includes(row.id) ? 'block' : 'hidden'" width="12" height="12" viewBox="0 0 14 14" fill="none">
-                                                <path d="M11.6668 3.5L5.25016 9.91667L2.3335 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </div>
-                                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded text-xs font-mono" x-text="row.path"></span>
-                                    </div>
+                                    <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded text-xs font-mono" x-text="row.path"></span>
                                 </td>
                                 <td class="px-5 py-4 text-sm text-gray-700 dark:text-gray-300" x-text="row.metaTitle"></td>
                                 <td class="px-5 py-4 text-sm text-gray-500 dark:text-gray-400" x-text="row.metaKeywords"></td>
@@ -140,7 +111,7 @@
                                 </td>
                                 <td class="px-5 py-4">
                                     <template x-if="row.ogImage">
-                                        <img :src="row.ogImage" class="w-10 h-10 rounded border border-gray-200 object-cover">
+                                        <img :src="row.ogImage" class="w-10 h-10 rounded border border-gray-200 object-cover" loading="lazy">
                                     </template>
                                     <template x-if="!row.ogImage">
                                         <span class="text-xs text-gray-400 italic">None</span>

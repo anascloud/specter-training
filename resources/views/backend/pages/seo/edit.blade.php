@@ -17,32 +17,32 @@
                 <div class="space-y-3">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <x-form.select-input name="path" label="Page Name" :value="$seo->path" :options="$routes" />
-                        <x-form.input-text name="meta_title" label="Meta Title" :value="$seo->meta_title"
+                        <x-form.input-text name="meta_title" label="Meta Title" :value="$seo->meta_title ?? ''"
                             placeholder="Enter meta title..." />
                     </div>
 
                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                     <x-form.textarea-input name="meta_description" label="Meta Description" :value="$seo->meta_description"
+                     <x-form.textarea-input name="meta_description" label="Meta Description" :value="$seo->meta_description ?? ''"
                         placeholder="Enter a description..." rows="2" />
 
-                    <x-form.textarea-input name="meta_keywords" label="Meta Keywords" :value="$seo->meta_keywords"
+                    <x-form.textarea-input name="meta_keywords" label="Meta Keywords" :value="$seo->meta_keywords ?? ''"
                         placeholder="Enter keywords separated by commas..." rows="2" />
                    </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <x-form.input-text name="robots" label="Robots" :value="$seo->robots"
+                        <x-form.input-text name="robots" label="Robots" :value="$seo->robots ?? ''"
                             placeholder="Enter robots directive..." />
 
-                        <x-form.input-text name="canonical_url" label="Canonical URL" :value="$seo->canonical_url"
+                        <x-form.input-text name="canonical_url" label="Canonical URL" :value="$seo->canonical_url ?? ''"
                             placeholder="Enter canonical URL..." />
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="og-section space-y-3">
-                            <x-form.input-text name="og_title" label="Open Graph Title" :value="$seo->og_title"
+                            <x-form.input-text name="og_title" label="Open Graph Title" :value="$seo->og_title ?? ''"
                                 placeholder="Enter Open Graph title..." />
 
-                            <x-form.input-text name="og_description" label="Open Graph Description" :value="$seo->og_description"
+                            <x-form.input-text name="og_description" label="Open Graph Description" :value="$seo->og_description ?? ''"
                                 placeholder="Enter Open Graph description..." />
 
                             <div class="">
@@ -54,10 +54,10 @@
                             </div>
                         </div>
                         <div class="twitter-section space-y-3">
-                            <x-form.input-text name="twitter_title" label="Twitter Title" :value="$seo->twitter_title"
+                            <x-form.input-text name="twitter_title" label="Twitter Title" :value="$seo->twitter_title ?? ''"
                                 placeholder="Enter Twitter title..." />
 
-                            <x-form.input-text name="twitter_description" label="Twitter Description" :value="$seo->twitter_description"
+                            <x-form.input-text name="twitter_description" label="Twitter Description" :value="$seo->twitter_description ?? ''"
                                 placeholder="Enter Twitter description..." />
                             <div class="">
                                 <label for="twitter_image"
@@ -68,7 +68,7 @@
                             </div>
                         </div>
                     </div>
-                    <x-form.textarea-input name="schema_markup" label="Schema Markup" :value="$seo->schema_markup" placeholder="Enter schema markup..."
+                    <x-form.textarea-input name="schema_markup" label="Schema Markup" :value="$seo->schema_markup ?? ''" placeholder="Enter schema markup..."
                         rows="4" />
                 </div>
                 <div class="flex justify-end">

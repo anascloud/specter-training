@@ -35,12 +35,12 @@ class StoreSeoRequest extends FormRequest
 
             'og_title' => 'nullable|string|max:255',
             'og_description' => 'nullable|string|max:1000',
-            'og_image' => 'nullable|file|mimetypes:image/png,image/jpeg,image/webp,image/svg+xml|max:5120',
+            'og_image' => 'nullable|file|mimetypes:image/png,image/jpeg,image/jpg,image/webp,image/svg+xml|max:5120',
             'og_type' => 'nullable|string|max:50',
 
             'twitter_title' => 'nullable|string|max:255',
             'twitter_description' => 'nullable|string|max:1000',
-            'twitter_image' => 'nullable|file|mimetypes:image/png,image/jpeg,image/webp,image/svg+xml|max:5120',
+            'twitter_image' => 'nullable|file|mimetypes:image/png,image/jpeg,image/jpg,image/webp,image/svg+xml|max:5120',
 
             'schema_markup' => 'nullable|string',
 
