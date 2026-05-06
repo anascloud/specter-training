@@ -29,6 +29,8 @@ class SeoController extends Controller
     public function store(StoreSeoRequest $request)
     {
         $data = $request->validated();
+        $data['path'] = $data['type'];
+        unset($data['type']);
 
         if ($request->hasFile('og_image')) {
 

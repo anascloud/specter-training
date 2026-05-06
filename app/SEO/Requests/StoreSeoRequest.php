@@ -3,6 +3,7 @@
 namespace App\SEO\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreSeoRequest extends FormRequest
 {
@@ -11,10 +12,18 @@ class StoreSeoRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'is_active' => $this->has('is_active') ? $this->input('is_active') : true,
+            'og_type' => $this->input('og_type', 'website'),
+        ]);
+    }
+
     public function rules(): array
     {
         return [
-            'path' => 'required|string',
+            'type' => ['required', 'string', Rule::unique('seo_metas', 'path')],
 
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string|max:1000',
@@ -26,23 +35,24 @@ class StoreSeoRequest extends FormRequest
 
             'og_title' => 'nullable|string|max:255',
             'og_description' => 'nullable|string|max:1000',
-            'og_image' => 'nullable|string|max:255',
+            'og_image' => 'nullable|file|mimetypes:image/png,image/jpeg,image/webp,image/svg+xml|max:5120',
             'og_type' => 'nullable|string|max:50',
 
             'twitter_title' => 'nullable|string|max:255',
             'twitter_description' => 'nullable|string|max:1000',
-            'twitter_image' => 'nullable|string|max:255',
+            'twitter_image' => 'nullable|file|mimetypes:image/png,image/jpeg,image/webp,image/svg+xml|max:5120',
 
             'schema_markup' => 'nullable|string',
 
-            'is_active' => 'required|boolean',
+            'is_active' => 'sometimes|boolean',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'path.required' => 'Please select a page or route.',
+            'type.required' => 'Please select a page or route.',
+            'type.unique' => 'SEO for this page/route already exists.',
 
             'meta_title.max' => 'Meta title cannot exceed 255 characters.',
 
@@ -52,7 +62,6 @@ class StoreSeoRequest extends FormRequest
 
             'canonical_url.url' => 'Please enter a valid canonical URL.',
 
-            'is_active.required' => 'Please select SEO status.',
             'is_active.boolean' => 'Invalid status selected.',
         ];
     }

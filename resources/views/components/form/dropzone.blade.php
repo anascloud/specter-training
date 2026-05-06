@@ -1,36 +1,32 @@
+@props(['name', 'label' => null, 'value' => null, 'placeholder' => null])
 
-    <div 
-        x-data="{
-            isDragging: false,
-            files: [],
-            handleDrop(e) {
-                this.isDragging = false;
-                const droppedFiles = Array.from(e.dataTransfer.files);
-                this.handleFiles(droppedFiles);
-            },
-            handleFiles(selectedFiles) {
-                const validTypes = ['image/png', 'image/jpeg', 'image/webp', 'image/svg+xml'];
-                const validFiles = selectedFiles.filter(file => validTypes.includes(file.type));
-                
-                if (validFiles.length > 0) {
-                    this.files = [...this.files, ...validFiles];
-                    console.log('Files uploaded:', validFiles);
-                    
-                    // Here you can add logic to upload files to server
-                    this.uploadFiles(validFiles);
-                }
-            },
-            uploadFiles(files) {
-                // Implement your file upload logic here
-                // Example: Use FormData and fetch/axios to upload
-                console.log('Uploading files:', files);
-            },
-            removeFile(index) {
-                this.files.splice(index, 1);
+<div 
+    x-data="{
+        isDragging: false,
+        files: [],
+        handleDrop(e) {
+            this.isDragging = false;
+            this.$refs.fileInput.files = e.dataTransfer.files;
+            this.handleFiles(Array.from(e.dataTransfer.files));
+        },
+        handleFiles(selectedFiles) {
+            const validTypes = ['image/png', 'image/jpeg', 'image/webp', 'image/svg+xml'];
+            const validFiles = selectedFiles.filter(file => validTypes.includes(file.type));
+
+            if (validFiles.length > 0) {
+                this.files = [validFiles[0]];
+            } else {
+                this.files = [];
+                this.$refs.fileInput.value = '';
             }
-        }"
-        class="transition border border-gray-300 border-dashed cursor-pointer dark:hover:border-brand-500 dark:border-gray-700 rounded-xl hover:border-brand-500"
-    >
+        },
+        removeFile() {
+            this.files = [];
+            this.$refs.fileInput.value = '';
+        }
+    }"
+    class="transition border border-gray-300 border-dashed cursor-pointer dark:hover:border-brand-500 dark:border-gray-700 rounded-xl hover:border-brand-500"
+>
         <div 
             @drop.prevent="handleDrop($event)"
             @dragover.prevent="isDragging = true"
@@ -46,9 +42,9 @@
             <input 
                 x-ref="fileInput"
                 type="file" 
-                @change="handleFiles(Array.from($event.target.files)); $event.target.value = ''"
+                name="{{ $name }}"
+                @change="handleFiles(Array.from($event.target.files))"
                 accept="image/png,image/jpeg,image/webp,image/svg+xml"
-                multiple
                 class="hidden"
                 @click.stop
             />
@@ -102,7 +98,7 @@
                             <span class="text-sm text-gray-700 dark:text-gray-300" x-text="file.name"></span>
                         </div>
                         <button 
-                            @click.stop="removeFile(index)"
+                            @click.stop="removeFile()"
                             type="button"
                             class="text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300"
                         >
@@ -114,5 +110,8 @@
                 </template>
             </ul>
         </div>
-    </div>
 
+        @error($name)
+            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+        @enderror
+    </div>

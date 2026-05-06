@@ -3,6 +3,7 @@
 namespace App\SEO\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateSeoRequest extends FormRequest
 {
@@ -11,12 +12,21 @@ class UpdateSeoRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation(): void
+    {
+        $this->merge([
+            'is_active' => $this->has('is_active') ? $this->input('is_active') : true,
+            'og_type' => $this->input('og_type', 'website'),
+        ]);
+    }
+
     public function rules(): array
     {
-        $seoId = $this->route('seo');
+        $seo = $this->route('seo');
+        $seoId = is_object($seo) ? $seo->id : $seo;
 
         return [
-            'path' => 'required|string' . $seoId,
+            'path' => ['required', 'string', Rule::unique('seo_metas', 'path')->ignore($seoId)],
 
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string|max:1000',
@@ -28,16 +38,16 @@ class UpdateSeoRequest extends FormRequest
 
             'og_title' => 'nullable|string|max:255',
             'og_description' => 'nullable|string|max:1000',
-            'og_image' => 'nullable|string|max:255',
+            'og_image' => 'nullable|file|mimetypes:image/png,image/jpeg,image/webp,image/svg+xml|max:5120',
             'og_type' => 'nullable|string|max:50',
 
             'twitter_title' => 'nullable|string|max:255',
             'twitter_description' => 'nullable|string|max:1000',
-            'twitter_image' => 'nullable|string|max:255',
+            'twitter_image' => 'nullable|file|mimetypes:image/png,image/jpeg,image/webp,image/svg+xml|max:5120',
 
             'schema_markup' => 'nullable|string',
 
-            'is_active' => 'required|boolean',
+            'is_active' => 'sometimes|boolean',
         ];
     }
 
@@ -48,7 +58,6 @@ class UpdateSeoRequest extends FormRequest
 
             'canonical_url.url' => 'Please enter a valid canonical URL.',
 
-            'is_active.required' => 'Please select SEO status.',
             'is_active.boolean' => 'Invalid status selected.',
         ];
     }
