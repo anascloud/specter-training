@@ -10,6 +10,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             'title' => 'Admin Dashboard'
         ]);
     })->name('dashboard');
+    
 
 });
 
