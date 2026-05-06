@@ -57,9 +57,9 @@ trait RouteDiscoveryTrait
                     continue;
                 }
 
-                $key = 'course:' . $course['slug'];
+                $key = $course['slug'];
 
-                $routes[$key] = 'Course: ' . $course['title'];
+                $routes[$key] = $course['title'];
             }
         }
 

@@ -6,12 +6,13 @@ use App\Http\Controllers\Controller;
 use App\SEO\Models\SeoMeta;
 use App\SEO\Requests\StoreSeoRequest;
 use App\SEO\Requests\UpdateSeoRequest;
+use App\Traits\CourseTrait;
 use App\Traits\RouteDiscoveryTrait;
 
 class SeoController extends Controller
 {
-    use RouteDiscoveryTrait;
-  public function index()
+    use CourseTrait, RouteDiscoveryTrait;
+    public function index()
     {
         $items = SeoMeta::latest()->paginate(20);
 
@@ -20,17 +21,32 @@ class SeoController extends Controller
 
     public function create()
     {
-       $routes = $this->getRouteList();
+        $routes = $this->getRouteList();
 
         return view('backend.pages.seo.create', compact('routes'));
     }
 
     public function store(StoreSeoRequest $request)
     {
-        SeoMeta::create($request->validated());
+        $data = $request->validated();
+
+        if ($request->hasFile('og_image')) {
+
+            $data['og_image'] = $request
+                ->file('og_image')
+                ->store('seo/og-images', 'public');
+        }
+        if ($request->hasFile('twitter_image')) {
+
+            $data['twitter_image'] = $request
+                ->file('twitter_image')
+                ->store('seo/twitter-images', 'public');
+        }
+
+        SeoMeta::create($data);
 
         return redirect()
-            ->route('seo.index')
+            ->route('admin.seo.index')
             ->with('success', 'SEO data created successfully.');
     }
 
@@ -49,7 +65,7 @@ class SeoController extends Controller
         $seo->update($request->validated());
 
         return redirect()
-            ->route('seo.index')
+            ->route('admin.seo.index')
             ->with('success', 'SEO data updated successfully.');
     }
 

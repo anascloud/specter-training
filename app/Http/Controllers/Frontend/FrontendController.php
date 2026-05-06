@@ -14,7 +14,6 @@ class FrontendController extends Controller
     {
         // Get only the first 3 courses for the landing page
         $courses = $this->getCourses()->take(3);
-   
         
         return view('frontend.pages.home', [
             'title' => 'Specter Training Center', 

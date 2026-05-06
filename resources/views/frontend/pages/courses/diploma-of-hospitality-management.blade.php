@@ -301,19 +301,19 @@
 
                             <form class="space-y-4">
 
-                                <x-input-text
+                                <x-form.input-text
                                     label="Full Name"
                                     name="full_name"
                                     placeholder="John Doe"
                                     type="text" />
 
-                                <x-input-text
+                                <x-form.input-text
                                     label="Email Address"
                                     name="email"
                                     placeholder="john@example.com"
                                     type="email" />
 
-                                <x-input-text
+                                <x-form.input-text
                                     label="Phone Number"
                                     name="phone"
                                     placeholder="+1 (555) 000-0000"

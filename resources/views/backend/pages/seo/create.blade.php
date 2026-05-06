@@ -11,14 +11,11 @@
         </div>
 
         <div class="mb-4">
-            <form action="">
+            <form action="{{route('admin.seo.store')}}" method="POST" enctype="multipart/form-data" class="space-y-6">
+                @csrf
                 <div class="space-y-3">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <x-form.select-input name="type" label="Page Name" value="" :options="[
-                            'retail-operations' => 'Retail Operations',
-                            'advanced-manufacturing' => 'Advanced Manufacturing',
-                            'business-administration' => 'Business Administration',
-                        ]" />
+                        <x-form.select-input name="type" label="Page Name" value="" :options="$routes" />
                         <x-form.input-text name="meta_title" label="Meta Title" value=""
                             placeholder="Enter meta title..." />
                     </div>
