@@ -39,9 +39,17 @@ trait RouteDiscoveryTrait
                 continue;
             }
 
-            $name = $route->getName();
+            // URI instead of route name
+            $uri = $route->uri();
 
-            $routes[$name] = $this->formatRouteName($name);
+            // Home route fix
+            if ($uri === '') {
+                $uri = '/';
+            }
+
+            $routeName = $route->getName();
+
+            $routes[$uri] = $this->formatRouteName($routeName);
         }
 
         /*
