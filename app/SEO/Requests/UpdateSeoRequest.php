@@ -12,14 +12,6 @@ class UpdateSeoRequest extends FormRequest
         return true;
     }
 
-    protected function prepareForValidation(): void
-    {
-        $this->merge([
-            'is_active' => $this->has('is_active') ? $this->input('is_active') : true,
-            'og_type' => $this->input('og_type', 'website'),
-        ]);
-    }
-
     public function rules(): array
     {
         $seo = $this->route('seo');

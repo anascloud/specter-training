@@ -8,6 +8,7 @@ use App\SEO\Requests\StoreSeoRequest;
 use App\SEO\Requests\UpdateSeoRequest;
 use App\Traits\CourseTrait;
 use App\Traits\RouteDiscoveryTrait;
+use Illuminate\Support\Facades\Storage;
 
 class SeoController extends Controller
 {
@@ -64,7 +65,29 @@ class SeoController extends Controller
 
     public function update(UpdateSeoRequest $request, SeoMeta $seo)
     {
-        $seo->update($request->validated());
+        $data = $request->validated();
+
+        if ($request->hasFile('og_image')) {
+            if ($seo->og_image) {
+                Storage::disk('public')->delete($seo->og_image);
+            }
+
+            $data['og_image'] = $request
+                ->file('og_image')
+                ->store('seo/og-images', 'public');
+        }
+
+        if ($request->hasFile('twitter_image')) {
+            if ($seo->twitter_image) {
+                Storage::disk('public')->delete($seo->twitter_image);
+            }
+
+            $data['twitter_image'] = $request
+                ->file('twitter_image')
+                ->store('seo/twitter-images', 'public');
+        }
+
+        $seo->update($data);
 
         return redirect()
             ->route('admin.seo.index')
@@ -73,6 +96,14 @@ class SeoController extends Controller
 
     public function destroy(SeoMeta $seo)
     {
+        if ($seo->og_image) {
+            Storage::disk('public')->delete($seo->og_image);
+        }
+
+        if ($seo->twitter_image) {
+            Storage::disk('public')->delete($seo->twitter_image);
+        }
+
         $seo->delete();
 
         return redirect()
