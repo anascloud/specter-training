@@ -16,7 +16,6 @@ class SeoMeta extends Model
         'og_title',
         'og_description',
         'og_image',
-        'og_type',
         'twitter_title',
         'twitter_description',
         'twitter_image',

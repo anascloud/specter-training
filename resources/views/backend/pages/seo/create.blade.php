@@ -1,43 +1,86 @@
 @extends('backend.layouts.app')
 
 @section('content')
-<div class="">
-    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+    <div class="">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
             <div>
                 <h3 class="text-lg font-semibold text-gray-800 dark:text-white/90">SEO Management</h3>
-                <p class="text-sm text-gray-500 dark:text-gray-400">Manage Meta tags, Open Graph, and Schema for all routes.</p>
-            </div>            
+                <p class="text-sm text-gray-500 dark:text-gray-400">Manage Meta tags, Open Graph, and Schema for all routes.
+                </p>
+            </div>
         </div>
 
         <div class="mb-4">
-           <form action="">
-              <div class="">
-                <x-form.select-input name="type" label="Page Name" value="Hospitality Management" :options="[
+            <form action="">
+                <div class="space-y-3">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <x-form.select-input name="type" label="Page Name" value="" :options="[
                             'retail-operations' => 'Retail Operations',
                             'advanced-manufacturing' => 'Advanced Manufacturing',
                             'business-administration' => 'Business Administration',
                         ]" />
-                <x-form.text-input name="meta_title" label="Meta Title" value="Hospitality Management" />
-                <x-form.textarea-input name="meta_description" label="Meta Description" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
-                <x-form.multi-select-input name="meta_keywords" label="Meta Keywords" :options="[
-                            'hospitality' => 'Hospitality',
-                            'management' => 'Management',
-                            'training' => 'Training',
-                            'course' => 'Course',
-                        ]" :selected="['hospitality', 'management']" />
-                <x-form.text-input name="og_title" label="Open Graph Title" value="Hospitality Management" />
-                <x-form.textarea-input name="og_description" label="Open Graph Description" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
-                <x-form.text-input name="schema" label="Schema Markup (JSON-LD)" value='{
-                    "@context": "https://schema.org",
-                    "@type": "WebPage",
-                    "name": "Hospitality Management",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                    "url": "https://example.com/hospitality-management"
-                }' />
-                <x-form.submit-button label="Save SEO Settings" />
-              </div>
-        
-        </form>
+                        <x-form.input-text name="meta_title" label="Meta Title" value=""
+                            placeholder="Enter meta title..." />
+                    </div>
+
+                   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                     <x-form.textarea-input name="meta_description" label="Meta Description"
+                        placeholder="Enter a description..." rows="2" />
+
+                    <x-form.textarea-input name="meta_keywords" label="Meta Keywords"
+                        placeholder="Enter keywords separated by commas..." rows="2" />
+                   </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <x-form.input-text name="robots" label="Robots" value=""
+                            placeholder="Enter robots directive..." />
+
+                        <x-form.input-text name="canonical_url" label="Canonical URL" value=""
+                            placeholder="Enter canonical URL..." />
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="og-section space-y-3">
+                            <x-form.input-text name="og_title" label="Open Graph Title" value=""
+                                placeholder="Enter Open Graph title..." />
+
+                            <x-form.input-text name="og_description" label="Open Graph Description" value=""
+                                placeholder="Enter Open Graph description..." />
+
+                            <div class="">
+                                <label for="og_image"
+                                    class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-400">Open Graph
+                                    Image</label>
+                                <x-form.dropzone name="og_image" label="Open Graph Image" value=""
+                                    placeholder="Upload Open Graph image..." />
+                            </div>
+                        </div>
+                        <div class="twitter-section space-y-3">
+                            <x-form.input-text name="twitter_title" label="Twitter Title" value=""
+                                placeholder="Enter Twitter title..." />
+
+                            <x-form.input-text name="twitter_description" label="Twitter Description" value=""
+                                placeholder="Enter Twitter description..." />
+                            <div class="">
+                                <label for="twitter_image"
+                                    class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-400">Twitter
+                                    Image</label>
+                                <x-form.dropzone name="twitter_image" label="Twitter Image" value=""
+                                    placeholder="Upload Twitter image..." />
+                            </div>
+                        </div>
+                    </div>
+                    <x-form.textarea-input name="schema_markup" label="Schema Markup" placeholder="Enter schema markup..."
+                        rows="4" />
+                </div>
+                <div class="flex justify-end">
+                    <button type="submit"
+                        class="mt-6 inline-flex items-center justify-center rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2">
+                        Save SEO Meta
+                    </button>
+                </div>
+
+            </form>
         </div>
-</div>
+    </div>
 @endsection
