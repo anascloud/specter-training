@@ -13,7 +13,7 @@
     <section>
         <div class="max-w-7xl mx-auto px-5 md:px-8">
             <div class="border border-gray-200 p-6 bg-white rounded-md">
-                <form id="qualification-filter-form" method="GET" action="{{ route('qualifications-page') }}">
+                <form id="qualification-filter-form" method="GET" action="{{ route('qualifications') }}">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <input type="text" name="search" value="{{ request('search') }}" placeholder="Search courses..."
                             class="dark:bg-dark-900 focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="flex items-center justify-end gap-4 mt-4">
-                        <a id="clear-qualification-filter" href="{{ route('qualifications-page') }}"
+                        <a id="clear-qualification-filter" href="{{ route('qualifications') }}"
                             class="{{ request()->filled('search') || request()->filled('industry') || request()->filled('level') ? '' : 'hidden' }} bg-teal-600 text-white rounded px-2 lg:px-4 py-2 font-medium text-sm active:scale-95 transition-transform mt-4">
                             Clear Filter
                         </a>
