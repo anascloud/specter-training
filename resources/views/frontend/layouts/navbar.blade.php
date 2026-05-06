@@ -30,9 +30,9 @@
             <div class="hidden sm:flex items-center gap-4 md:gap-6 lg:gap-8 text-sm lg:text-base">
 
                 {{-- Home --}}
-                <a href="{{ route('landing-page') }}"
+                <a href="{{ route('home') }}"
                     class="relative font-normal transition-all duration-300
-        {{ request()->routeIs('landing-page') ? 'text-teal-600 font-normal after:w-full' : 'text-slate-700 hover:text-teal-600 after:w-0 hover:after:w-full' }}
+        {{ request()->routeIs('home') ? 'text-teal-600 font-normal after:w-full' : 'text-slate-700 hover:text-teal-600 after:w-0 hover:after:w-full' }}
         after:absolute after:left-0 after:bottom-[-6px]
         after:h-[2px] after:bg-teal-600 after:transition-all after:duration-300">
 
@@ -41,9 +41,9 @@
 
 
                 {{-- Qualifications --}}
-                <a href="{{ route('qualifications-page') }}"
+                <a href="{{ route('qualifications') }}"
                     class="relative font-normal transition-all duration-300
-        {{ request()->routeIs('qualifications-page') ? 'text-teal-600 font-normal after:w-full' : 'text-slate-700 hover:text-teal-600 after:w-0 hover:after:w-full' }}
+        {{ request()->routeIs('qualifications') ? 'text-teal-600 font-normal after:w-full' : 'text-slate-700 hover:text-teal-600 after:w-0 hover:after:w-full' }}
         after:absolute after:left-0 after:bottom-[-6px]
         after:h-[2px] after:bg-teal-600 after:transition-all after:duration-300">
 
@@ -52,9 +52,9 @@
 
 
                 {{-- About --}}
-                <a href="{{ route('about-page') }}"
+                <a href="{{ route('about') }}"
                     class="relative font-normal transition-all duration-300
-        {{ request()->routeIs('about-page') ? 'text-teal-600 font-normal after:w-full' : 'text-slate-700 hover:text-teal-600 after:w-0 hover:after:w-full' }}
+        {{ request()->routeIs('about') ? 'text-teal-600 font-normal after:w-full' : 'text-slate-700 hover:text-teal-600 after:w-0 hover:after:w-full' }}
         after:absolute after:left-0 after:bottom-[-6px]
         after:h-[2px] after:bg-teal-600 after:transition-all after:duration-300">
 
@@ -63,9 +63,9 @@
 
 
                 {{-- Contact --}}
-                <a href="{{ route('contact-page') }}"
+                <a href="{{ route('contact') }}"
                     class="relative font-normal transition-all duration-300
-        {{ request()->routeIs('contact-page') ? 'text-teal-600 font-normal after:w-full' : 'text-slate-700 hover:text-teal-600 after:w-0 hover:after:w-full' }}
+        {{ request()->routeIs('contact') ? 'text-teal-600 font-normal after:w-full' : 'text-slate-700 hover:text-teal-600 after:w-0 hover:after:w-full' }}
         after:absolute after:left-0 after:bottom-[-6px]
         after:h-[2px] after:bg-teal-600 after:transition-all after:duration-300">
 
@@ -88,14 +88,14 @@
     <div id="mobileMenu" class="hidden sm:hidden bg-white border-t border-slate-200 shadow-lg">
 
         <div class="flex flex-col px-6 py-5 space-y-3 text-base">
-            <a href="{{ route('landing-page') }}"
-                class="{{ request()->routeIs('landing-page') ? 'text-teal-600 font-medium' : 'text-slate-700' }}">Home</a>
-            <a href="{{ route('qualifications-page') }}"
-                class="{{ request()->routeIs('qualifications-page') ? 'text-teal-600 font-medium' : 'text-slate-700' }}">Qualifications</a>
-            <a href="{{ route('about-page') }}"
-                class="{{ request()->routeIs('about-page') ? 'text-teal-600 font-medium' : 'text-slate-700' }}">About</a>
-            <a href="{{ route('contact-page') }}"
-                class="{{ request()->routeIs('contact-page') ? 'text-teal-600 font-medium' : 'text-slate-700' }}">Contact</a>
+            <a href="{{ route('home') }}"
+                class="{{ request()->routeIs('home') ? 'text-teal-600 font-medium' : 'text-slate-700' }}">Home</a>
+            <a href="{{ route('qualifications') }}"
+                class="{{ request()->routeIs('qualifications') ? 'text-teal-600 font-medium' : 'text-slate-700' }}">Qualifications</a>
+            <a href="{{ route('about') }}"
+                class="{{ request()->routeIs('about') ? 'text-teal-600 font-medium' : 'text-slate-700' }}">About</a>
+            <a href="{{ route('contact') }}"
+                class="{{ request()->routeIs('contact') ? 'text-teal-600 font-medium' : 'text-slate-700' }}">Contact</a>
             <button class="bg-teal-600 text-white py-3 rounded-lg font-normal">
                 Apply Now
             </button>
