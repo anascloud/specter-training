@@ -11,6 +11,14 @@
         </div>
 
         <div class="mb-4">
+            @php
+                $headerScripts = old('header_scripts', $seo->header_scripts ?? []);
+                $footerScripts = old('footer_scripts', $seo->footer_scripts ?? []);
+
+                $headerScripts = is_array($headerScripts) && count($headerScripts) ? $headerScripts : [''];
+                $footerScripts = is_array($footerScripts) && count($footerScripts) ? $footerScripts : [''];
+            @endphp
+
             <form action="{{ route('admin.seo.update', $seo) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
                 @csrf
                 @method('PUT')
@@ -76,25 +84,27 @@
                                 <label for=""
                                     class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-400">Header
                                     Scripts</label>
+                                @foreach ($headerScripts as $script)
                                 <div class="script-row space-y-3 mb-4">
 
                                     <x-form.textarea-input name="header_scripts[]" label=""
-                                        placeholder="Enter header scripts..." rows="4" />
+                                        :value="$script" placeholder="Enter header scripts..." rows="4" />
 
                                     <div class="flex justify-end gap-3">
 
                                         <button type="button"
-                                            class="remove-btn hidden text-sm bg-red-500 py-1.5 px-4 rounded text-white">
+                                            class="remove-btn {{ count($headerScripts) === 1 ? 'hidden' : '' }} text-sm bg-red-500 py-1.5 px-4 rounded text-white">
                                             Remove
                                         </button>
 
                                         <button type="button"
-                                            class="add-btn text-sm bg-brand-600 py-1.5 px-4 rounded text-white">
+                                            class="add-btn {{ $loop->last ? '' : 'hidden' }} text-sm bg-brand-600 py-1.5 px-4 rounded text-white">
                                             Add New
                                         </button>
 
                                     </div>
                                 </div>
+                                @endforeach
 
                             </div>
                         </div>
@@ -106,25 +116,27 @@
                                     class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-400">Footer
                                     Scripts</label>
 
+                                @foreach ($footerScripts as $script)
                                 <div class="script-row space-y-3 mb-4">
 
                                     <x-form.textarea-input name="footer_scripts[]" label=""
-                                        placeholder="Enter footer scripts..." rows="4" />
+                                        :value="$script" placeholder="Enter footer scripts..." rows="4" />
 
                                     <div class="flex justify-end gap-3">
 
                                         <button type="button"
-                                            class="remove-btn hidden text-sm bg-red-500 py-1.5 px-4 rounded text-white">
+                                            class="remove-btn {{ count($footerScripts) === 1 ? 'hidden' : '' }} text-sm bg-red-500 py-1.5 px-4 rounded text-white">
                                             Remove
                                         </button>
 
                                         <button type="button"
-                                            class="add-btn text-sm bg-brand-600 py-1.5 px-4 rounded text-white">
+                                            class="add-btn {{ $loop->last ? '' : 'hidden' }} text-sm bg-brand-600 py-1.5 px-4 rounded text-white">
                                             Add New
                                         </button>
 
                                     </div>
                                 </div>
+                                @endforeach
 
                             </div>
                         </div>
