@@ -10,7 +10,7 @@
 
         <div class="flex flex-wrap items-center gap-2">
             @if (!empty($seoAuditReportFile))
-                <a href="{{ route('admin.seo-audit.download-csv', ['filename' => $seoAuditReportFile]) }}"
+                <a href="{{ route('admin.seo-audits.download-csv', ['filename' => $seoAuditReportFile]) }}"
                     class="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200">
                     Download CSV (Excel)
                 </a>
@@ -33,6 +33,7 @@
             $avg = $summary['average_scores'] ?? [];
             $sev = $summary['severity_breakdown'] ?? [];
             $pages = $seoAuditReport['pages'] ?? [];
+            $pages = is_array($pages) ? $pages : [];
             $duplicates = $seoAuditReport['duplicates'] ?? [];
             $dupTitles = $duplicates['titles'] ?? [];
             $dupDescriptions = $duplicates['meta_descriptions'] ?? [];
@@ -115,7 +116,7 @@
         <div class="rounded-xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900">
             <div class="flex items-center justify-between gap-3 border-b border-gray-200 px-5 py-4 dark:border-gray-800">
                 <div>
-                    <div class="text-sm font-medium text-gray-900 dark:text-white">Page-level report</div>
+                    <div class="text-sm font-medium text-gray-900 dark:text-white">All pages summary</div>
                     <div class="mt-1 text-xs text-gray-500 dark:text-gray-400">{{ count($pages) }} pages</div>
                 </div>
             </div>
@@ -169,6 +170,7 @@
                 </table>
             </div>
         </div>
+
     @endif
 </div>
 @endsection
