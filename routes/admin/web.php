@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AuthController;
 use App\SEO\Controllers\SeoController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 Route::middleware('guest')->group(function () {
     Route::get('/admin/login', [AuthController::class, 'showLoginForm'])->name('admin.login');
@@ -16,10 +17,46 @@ Route::post('/admin/logout', [AuthController::class, 'logout'])
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:super admin'])->group(function () {
 
     Route::get('/dashboard', function () {
+        $disk = Storage::disk('local');
+        $files = $disk->files('private/seo-audits');
+        $latest = null;
+
+        if (!empty($files)) {
+            $latest = collect($files)
+                ->sortByDesc(fn ($f) => $disk->lastModified($f))
+                ->first();
+        }
+
+        $seoAuditReport = null;
+        $seoAuditReportFile = null;
+
+        if (is_string($latest) && $disk->exists($latest)) {
+            $decoded = json_decode($disk->get($latest), true);
+            if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                $seoAuditReport = $decoded;
+                $seoAuditReportFile = basename($latest);
+            }
+        }
+
         return view('backend.pages.dashboard.index', [
-            'title' => 'Admin Dashboard'
+            'title' => 'Admin Dashboard',
+            'seoAuditReport' => $seoAuditReport,
+            'seoAuditReportFile' => $seoAuditReportFile,
         ]);
     })->name('dashboard');
+
+    Route::get('/seo-audit/download/{filename}', function (string $filename) {
+        $filename = basename($filename);
+        $path = 'private/seo-audits/'.$filename;
+
+        $disk = Storage::disk('local');
+        abort_unless($disk->exists($path), 404);
+
+        return response()->download($disk->path($path), $filename, [
+            'Content-Type' => 'application/json; charset=utf-8',
+        ]);
+    })->name('seo-audit.download');
+
     Route::resource('seo', SeoController::class);
 
 });
