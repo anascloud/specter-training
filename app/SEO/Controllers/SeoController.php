@@ -71,44 +71,64 @@ class SeoController extends Controller
         ));
     }
 
-    public function update(UpdateSeoRequest $request, SeoMeta $seo)
-    {
-        $data = $request->validated();
+  public function update(UpdateSeoRequest $request, SeoMeta $seo)
+{
+    $data = $request->validated();
 
-        if ($request->hasFile('og_image')) {
-            if ($seo->og_image) {
-                Storage::disk('public')->delete($seo->og_image);
-            }
+     if ($request->hasFile('og_image')) {
 
-            $data['og_image'] = $request
-                ->file('og_image')
-                ->store('seo/og-images', 'public');
+        if ($seo->og_image) {
+            Storage::disk('public')->delete($seo->og_image);
         }
 
-        if ($request->hasFile('twitter_image')) {
-            if ($seo->twitter_image) {
-                Storage::disk('public')->delete($seo->twitter_image);
-            }
+        $data['og_image'] = $request->file('og_image')
+            ->store('seo/og-images', 'public');
 
-            $data['twitter_image'] = $request
-                ->file('twitter_image')
-                ->store('seo/twitter-images', 'public');
+    } else {
+        $data['og_image'] = $seo->og_image;
+    }
+
+ 
+    if ($request->hasFile('twitter_image')) {
+
+        if ($seo->twitter_image) {
+            Storage::disk('public')->delete($seo->twitter_image);
         }
+
+        $data['twitter_image'] = $request->file('twitter_image')
+            ->store('seo/twitter-images', 'public');
+
+    } else {
+        $data['twitter_image'] = $seo->twitter_image;
+    }
+
+  
+    if ($request->has('header_scripts')) {
 
         $data['header_scripts'] = array_values(
-            array_filter($data['header_scripts'] ?? [])
+            array_filter($request->input('header_scripts', []))
         );
+
+    } else {
+        $data['header_scripts'] = $seo->header_scripts ?? [];
+    }
+
+    if ($request->has('footer_scripts')) {
 
         $data['footer_scripts'] = array_values(
-            array_filter($data['footer_scripts'] ?? [])
+            array_filter($request->input('footer_scripts', []))
         );
 
-        $seo->update($data);
-
-        return redirect()
-            ->route('admin.seo.index')
-            ->with('success', 'SEO data updated successfully.');
+    } else {
+        $data['footer_scripts'] = $seo->footer_scripts ?? [];
     }
+
+    $seo->update($data);
+
+    return redirect()
+        ->route('admin.seo.index')
+        ->with('success', 'SEO data updated successfully.');
+}
 
     public function destroy(SeoMeta $seo)
     {

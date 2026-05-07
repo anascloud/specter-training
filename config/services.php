@@ -34,5 +34,11 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
+    'ga4' => [
+    'id' => env('GA4_ID'),
+],
+'meta' => [
+    'pixel_id' => env('META_PIXEL_ID'),
+],
 
 ];

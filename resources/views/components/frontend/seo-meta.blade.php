@@ -36,6 +36,25 @@
       content="{{ $seo?->twitter_image
             ? asset('storage/'.$seo->twitter_image)
             : asset('images/logo.jpg') }}">
+
+
+<!-- scripts header and footer -->
+@if (!empty($seo?->header_scripts))
+
+    @foreach ($seo->header_scripts as $script)
+        {!! $script !!}
+    @endforeach
+
+@endif
+
+@if (!empty($seo?->footer_scripts))
+
+    @foreach ($seo->footer_scripts as $script)
+        {!! $script !!}
+    @endforeach
+
+@endif
+
 <!-- Schema -->
 @if ($seo?->schema_markup)
     {!! $seo->schema_markup !!}
