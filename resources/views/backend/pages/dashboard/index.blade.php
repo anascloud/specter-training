@@ -126,14 +126,13 @@
                     <thead class="bg-gray-50 text-xs uppercase text-gray-500 dark:bg-white/[0.03] dark:text-gray-400">
                         <tr>
                             <th class="px-5 py-3">URL</th>
-                            <th class="px-5 py-3">Status</th>
                             <th class="px-5 py-3">SEO</th>
-                            <th class="px-5 py-3">Perf</th>
+                            <th class="px-5 py-3">Performance</th>
                             <th class="px-5 py-3">A11y</th>
                             <th class="px-5 py-3">Mobile</th>
-                            <th class="px-5 py-3">Schema</th>
                             <th class="px-5 py-3">Severity</th>
                             <th class="px-5 py-3">Top issues</th>
+                            <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider text-right">Action</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
@@ -152,17 +151,25 @@
                             @endphp
                             <tr class="hover:bg-gray-50/50 dark:hover:bg-white/[0.01] transition-colors">
                                 <td class="px-5 py-3 font-mono text-xs text-gray-900 dark:text-gray-100">{{ $page['uri'] ?? '-' }}</td>
-                                <td class="px-5 py-3 text-gray-700 dark:text-gray-200">{{ $page['status'] ?? '-' }}</td>
                                 <td class="px-5 py-3 text-gray-700 dark:text-gray-200">{{ $page['scores']['seo'] ?? '-' }}</td>
                                 <td class="px-5 py-3 text-gray-700 dark:text-gray-200">{{ $page['scores']['performance'] ?? '-' }}</td>
                                 <td class="px-5 py-3 text-gray-700 dark:text-gray-200">{{ $page['scores']['accessibility'] ?? '-' }}</td>
                                 <td class="px-5 py-3 text-gray-700 dark:text-gray-200">{{ $page['scores']['mobile_seo'] ?? '-' }}</td>
-                                <td class="px-5 py-3 text-gray-700 dark:text-gray-200">{{ $page['scores']['structured_data'] ?? '-' }}</td>
                                 <td class="px-5 py-3">
                                     <span class="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium {{ $sevClass }}">{{ $sevLabel }}</span>
                                 </td>
                                 <td class="px-5 py-3 text-xs text-gray-600 dark:text-gray-300">
                                     {{ $topIssues !== [] ? implode(', ', $topIssues) : '-' }}
+                                </td>
+                                <td class="px-5 py-4 text-right">
+                                    <div class="flex justify-end gap-2">
+                                        <a :href="" class="p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-all">
+                                            <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                            </svg>
+                                        </a>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach
