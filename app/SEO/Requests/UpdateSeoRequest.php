@@ -38,6 +38,11 @@ class UpdateSeoRequest extends FormRequest
             'twitter_image' => 'nullable|file|mimetypes:image/png,image/jpeg,image/jpg,image/webp,image/svg+xml|max:5120',
 
             'schema_markup' => 'nullable|string',
+              'header_scripts' => 'nullable|array',
+            'header_scripts.*' => 'nullable|string',
+
+            'footer_scripts' => 'nullable|array',
+            'footer_scripts.*' => 'nullable|string',
 
             'is_active' => 'sometimes|boolean',
         ];
@@ -49,6 +54,8 @@ class UpdateSeoRequest extends FormRequest
             'path.required' => 'Please select a page or route.',
 
             'canonical_url.url' => 'Please enter a valid canonical URL.',
+             'header_scripts.array' => 'Header scripts format is invalid.',
+            'footer_scripts.array' => 'Footer scripts format is invalid.',
 
             'is_active.boolean' => 'Invalid status selected.',
         ];

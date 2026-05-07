@@ -21,6 +21,12 @@ class SeoMeta extends Model
         'twitter_description',
         'twitter_image',
         'schema_markup',
+        'header_scripts',
+        'footer_scripts',
         'is_active',
     ];
+    protected $casts = [
+    'header_scripts' => 'array',
+    'footer_scripts' => 'array',
+];
 }

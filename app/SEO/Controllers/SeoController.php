@@ -46,6 +46,14 @@ class SeoController extends Controller
                 ->store('seo/twitter-images', 'public');
         }
 
+        $data['header_scripts'] = array_values(
+            array_filter($data['header_scripts'] ?? [])
+        );
+
+        $data['footer_scripts'] = array_values(
+            array_filter($data['footer_scripts'] ?? [])
+        );
+
         SeoMeta::create($data);
 
         return redirect()
@@ -86,6 +94,14 @@ class SeoController extends Controller
                 ->file('twitter_image')
                 ->store('seo/twitter-images', 'public');
         }
+
+        $data['header_scripts'] = array_values(
+            array_filter($data['header_scripts'] ?? [])
+        );
+
+        $data['footer_scripts'] = array_values(
+            array_filter($data['footer_scripts'] ?? [])
+        );
 
         $seo->update($data);
 

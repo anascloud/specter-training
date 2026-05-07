@@ -42,6 +42,10 @@ return new class extends Migration
         // schema markup
         $table->longText('schema_markup')->nullable();
 
+        //dynamic scripts like google analytics, facebook pixel, etc.
+        $table->json('header_scripts')->nullable(); //multiple lines  and multiple scripts for header
+        $table->json('footer_scripts')->nullable(); //multiple lines  and multiple scripts for footer
+
         // status
         $table->boolean('is_active')->default(true);
 
@@ -54,6 +58,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('seo_meta');
+        Schema::dropIfExists('seo_metas');
+
     }
 };
