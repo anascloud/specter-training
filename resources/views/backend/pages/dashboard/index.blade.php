@@ -10,9 +10,9 @@
 
         <div class="flex flex-wrap items-center gap-2">
             @if (!empty($seoAuditReportFile))
-                <a href="{{ route('admin.seo-audit.download', ['filename' => $seoAuditReportFile]) }}"
+                <a href="{{ route('admin.seo-audit.download-csv', ['filename' => $seoAuditReportFile]) }}"
                     class="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200">
-                    Download latest report
+                    Download CSV (Excel)
                 </a>
             @endif
         </div>
