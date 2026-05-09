@@ -17,4 +17,15 @@ class SectionService
     {
         return $this->repo->getBySlug($slug);
     }
+
+    public function getMany(array $slugs): array
+    {
+        $result = [];
+
+        foreach ($slugs as $slug) {
+            $result[$slug] = $this->repo->getBySlug($slug);
+        }
+
+        return $result;
+    }
 }
