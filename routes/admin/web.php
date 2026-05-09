@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\PageController as AdminPageController;
 use App\Http\Controllers\Frontend\PageController;
 use App\SEO\Controllers\SeoController;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:super admin'])
         ]);
     })->name('dashboard');
     Route::resource('seo', SeoController::class);
+    Route::resource('pages', AdminPageController::class);
 
     Route::get('/', [PageController::class, 'home']);
 

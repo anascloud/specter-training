@@ -17,7 +17,11 @@ class MenuHelper
                 'icon' => 'pages',
                 'path' => '/admin/seo',
             ],
-
+   [
+                'name' => 'Manage Page',
+                'icon' => 'pages',
+                'path' => '/admin/pages',
+            ],
             
         ];
     }
