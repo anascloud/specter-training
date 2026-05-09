@@ -69,6 +69,7 @@
                     <tr>
                         <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
                         <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider">Slug</th>
+                        <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider">View Page</th>
                         <th class="px-5 py-4 text-xs font-medium text-gray-500 uppercase tracking-wider text-right">Action</th>
                     </tr>
                 </thead>
@@ -85,6 +86,12 @@
                             <td class="px-5 py-4 text-sm text-gray-700 dark:text-gray-300" x-text="row.title"></td>
                             <td class="px-5 py-4">
                                 <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded text-xs font-mono" x-text="row.slug"></span>
+                            </td>
+                            <td class="px-5 py-4">
+                                <a :href="pagesBaseUrl + '/' + row.id + '/builder'" target="_blank"
+                                    class="text-sm font-medium text-brand-600 dark:text-brand-500">
+                                    View Page
+                                </a>
                             </td>
                             <td class="px-5 py-4 text-right">
                                 <div class="flex justify-end gap-2">

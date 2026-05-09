@@ -24,6 +24,9 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:super admin'])
     })->name('dashboard');
     Route::resource('seo', SeoController::class);
     Route::resource('pages', AdminPageController::class);
+    Route::get('pages/{page}/builder', [AdminPageController::class, 'builder'])->name('pages.builder');
+    Route::post('pages/{page}/sections', [AdminPageController::class, 'storeSection'])->name('pages.sections.store');
+    Route::post('sections/{section}/blocks', [AdminPageController::class, 'storeBlock'])->name('sections.blocks.store');
 
     Route::get('/', [PageController::class, 'home']);
 
