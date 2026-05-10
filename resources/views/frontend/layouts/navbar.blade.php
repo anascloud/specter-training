@@ -87,7 +87,7 @@
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden sm:hidden bg-white border-t border-slate-200 shadow-lg">
 
-        <div class="flex flex-col px-6 py-5 space-y-3 text-base">
+        <div class="flex flex-col px-6 py-5 space-y-3 text-base text-red-500">
             <a href="{{ route('home') }}"
                 class="{{ request()->routeIs('home') ? 'text-teal-600 font-medium' : 'text-slate-700' }}">Home</a>
             <a href="{{ route('qualifications') }}"
