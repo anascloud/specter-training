@@ -10,6 +10,8 @@
 
     @include('layouts.partials.manual-styles')
     @include('layouts.partials.manual-scripts')
+    <link rel="stylesheet" href="{{ asset('css/back-end-custom.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
 
 
     <!-- Theme + Sidebar Store -->
@@ -78,12 +80,15 @@
 
     <x-preloader/>
 
-    <div class="min-h-screen xl:flex">
+    <div class="min-h-screen xl:flex overflow-hidden">
 
         @include('backend.layouts.backdrop')
         @include('backend.layouts.sidebar')
 
-        <div class="flex-1">
+        <div :class="[
+  'flex-1',
+  $store.sidebar.isExpanded ? 'ml-fifteen' : 'ml-four'
+]">
             @include('backend.layouts.app-header')
 
             <div class="p-4 mx-auto md:p-6">

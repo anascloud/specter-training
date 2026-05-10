@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/front-end-custom.css') }}">
     @include('layouts.partials.manual-styles')
     @include('layouts.partials.manual-scripts')
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="min-h-screen flex flex-col">
     

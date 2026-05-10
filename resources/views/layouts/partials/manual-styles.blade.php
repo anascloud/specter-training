@@ -19,4 +19,4 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.17/index.global.min.css">
 
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-<link rel="stylesheet" href="{{ asset('build/assets/app-CksuuEqD.css') }}">
+{{-- <link rel="stylesheet" href="{{ asset('build/assets/app-CksuuEqD.css') }}"> --}}
